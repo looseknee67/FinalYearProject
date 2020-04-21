@@ -2,12 +2,15 @@ if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
   }
 
-
+ 
 const express = require('express')
 const app = express()
 const expressLayouts = require('express-ejs-layouts')
+const bcrypt = require('bcryptjs')
 
 const indexRouter = require('./routes/index')
+const loginRouter = require('./routes/loginRoute')
+const registerRouter = require('./routes/registerRoute')
 
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
@@ -22,5 +25,9 @@ db.on('error', error => console.error(error))
 db.once('open', () => console.log('Connected to Mongoose'))
 
 app.use('/', indexRouter)
+app.use('/', loginRouter)
+app.use('/', registerRouter)
+
+
 
 app.listen(process.env.PORT || 3000)
