@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+form.custom-form{
+    max-width: 30rem;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 200px;
+    margin-bottom: auto;
+}
+
+
+.background {
+    background-color: #2F4054;
+    height: 97vh;
+    
+}
+
+* {
+    color:white; 
+}
+.display-4-custom {
+    text-align: center;
+    font-size: 3.5rem;
+}
+
+.custom-bg-dark {
+    background-color: #15C7FF !important;
+}
+.custom2-bg-dark {
+    background-color: #2F4054 !important;/*  #27331D; *//* #2F4054; */
+    padding: 32px 32px !important;
+}
+nav.navbar {
+    height: 3rem;
+}
+
+a.navbar-brand {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+li.nav-item a {
+    text-transform: uppercase;
+    color: white !important;
+    
+}
+
+li.nav-item a:hover {
+    
+    color: #2F4054 !important;
+    
+}
+li.nav-item a:focus {
+    
+    color: #2F4054 !important;
+    
+}
+
+.logo {
+    display: block;
+    text-align: center;  
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px;
+}
+
+footer#custom-footer {
+    height: 3rem;
+    background-color: #15C7FF;
+    font-size: .75rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+@media screen and (max-width: 767px) {
+    div#navbarCollapse {
+        width: 100%;
+        position: fixed;
+        top: 75px;
+        left: 0;
+        padding-left: 20px;
+        padding-bottom: 5px;
+        background-color: #15C7FF;
+    }
+}
+
