@@ -5,5 +5,10 @@ router.get('/', (req, res) => {
     res.render('index')
 })
 
+router.get('/account', (req, res) => {
+    res.render('account')
+})
+
+
 
 module.exports = router

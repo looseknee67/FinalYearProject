@@ -1,3 +1,8 @@
+* {
+    color:white; 
+}
+
+
 body {
     margin: 0;
     padding: 0;
@@ -17,12 +22,10 @@ form.custom-form{
 .background {
     background-color: #2F4054;
     height: 97vh;
+    width: 100vw;
     
 }
 
-* {
-    color:white; 
-}
 .display-4-custom {
     text-align: center;
     font-size: 3.5rem;
@@ -82,7 +85,7 @@ footer#custom-footer {
 
 }
 
-@media screen and (max-width: 767px) {
+@media only screen and (max-width: 767px) {
     div#navbarCollapse {
         width: 100%;
         position: fixed;
@@ -91,6 +94,11 @@ footer#custom-footer {
         padding-left: 20px;
         padding-bottom: 5px;
         background-color: #15C7FF;
-    }
+    }   
 }
 
+/* @media screen and (max-width: 800) {
+    .background{
+    background-color:   #2F4054;
+    }
+} */
