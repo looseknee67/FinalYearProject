@@ -1,51 +1,58 @@
-<!-- <h1>Register</h1>
-<form action="/register" method="POST">
-  <div>
-    <label for="username">Username</label>
-    <input type="text" id="username" name="username" required>
-  </div>
- 
-  <div>
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password" required>
-  </div>
-
-  <div>
-    <label for="postcode">Postcode</label>
-    <input type="postcode" id="postcode" name="postcode" required>
-  </div>
-
-  <button type="submit" class="btn btn-success">Register</button>
-  <a href="/">Cancel</a>
-</form>
-<a href="/login">Login</a> -->
-
-<div>
- 
-<form class="custom-form" action="/register" method="POST">
+       
+  <form class="custom-form" action="/register" method="POST">
   <h1><center>Register Page</center></h1><br>
+ 
 <div class="form-group">
 <label for="username">Username</label>
-<input type="text" class="form-control" id="username"
-placeholder="Username" />
+  <input 
+    type="text" 
+    class="form-control" 
+    id="username" 
+    name="username"
+    placeholder="Username" 
+    value="<%= typeof username != 'undefined' ? username: '' %>"/> <%# ////////////////////////////////check syntax////////////////////////////////////////// #%>
 </div>
 
 <div class="form-group">
 <label for="password">Password</label>
-<input type="password" class="form-control" id="password"
-placeholder="Password" />
+<input type="password" 
+class="form-control" 
+id="password"
+name="password"
+placeholder="Password"
+value="<%= typeof password != 'undefined' ? password: '' %>"
+/>
 </div>
+
+    <div class="form-group">
+      <label for="password2">Confirm Password</label>
+      <input type="password" 
+      class="form-control" 
+      id="password2"
+      name="password2"
+      placeholder="Confirm Password"
+      value="<%= typeof password2 != 'undefined' ? password2: '' %>"
+      />
+      </div>
 
 <div class="form-group">
 <label for="postcode">Postcode</label>
-<input type="text" class="form-control" id="postcode"
-placeholder="Postcode" />
+<input type="postcode" 
+class="form-control" 
+id="postcode"
+name="postcode"
+placeholder="Postcode" 
+value="<%= typeof postcode != 'undefined' ? postcode: '' %>"
+/>
 </div>
 
 <div>
 <button type="submit" class="btn btn-success btn-md" style="margin-right:10px">Register</button>
 <a href="/" class="btn btn-info">Cancel</a>
 </div>
-
+<p class="lead mt-4">Already Have An Account? <a href="/login" style="color: #15C7FF">Login</a>
+  <%- include('../views/partials/errorMessages.ejs') %>
 </form>
-</div>
+
+
+

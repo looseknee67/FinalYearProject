@@ -7,26 +7,34 @@ const app = express()
 const expressLayouts = require('express-ejs-layouts')
 const bodyParser = require('body-parser')
 
-
-
+// Routes (import)
 const indexRouter = require('./routes/index')
 const userRouter = require('./routes/users')
+const postcodeRouter = require('./routes/postcode')
 
+// View
 app.use(expressLayouts)
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
 app.set('layout', 'layouts/layout')
 app.use(express.static(__dirname + '/public'))
-app.use(bodyParser.urlencoded({ extended: true }))
 
+// Bodyparser
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// Routes (use)
+app.use('/', indexRouter)
+app.use('/', userRouter)
+app.use('/', postcodeRouter)
+
+//Mongoose
 const mongoose = require('mongoose')
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
 const db = mongoose.connection
 db.on('error', error => console.error(error))
-db.once('open', () => console.log('Connected to Mongoose'))
+db.once('open', () => console.log('Connected to Database'))
 
-app.use('/', indexRouter)
-app.use('/', userRouter)
+
 
 let port = 3000;
 app.listen(process.env.PORT || port, () => {
