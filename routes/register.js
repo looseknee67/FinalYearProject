@@ -1,14 +1,14 @@
 const express = require('express')
 const router = express.Router()
-const User = require('../models/User')
 const bcrypt = require ('bcryptjs')
+
+
+// load user model
+const User = require('../models/User')
 
 const saltRounds = 10;
 
-//login page
-router.get('/login', (req, res) => {
-    res.render('login')
-})
+
 
 // register page
 router.get('/register', (req, res) => {
@@ -16,15 +16,16 @@ router.get('/register', (req, res) => {
 })
 
 // user account
-router.get('/account', (req, res) => {
+/* router.get('/account', (req, res) => {
     res.render('account')
-})
+}) */
 
 // Handle Register
 router.post('/register', (req, res) => {
   const { username, password, password2, postcode} = req.body;
 
-  let errors = [];
+  const errors = [];
+  const success = [];
 
   //check inputs
   if(!username || !password || !password2 || !postcode){
@@ -69,31 +70,23 @@ if(errors.length > 0){
                     password: password,
                     postcode: postcode
                 })
-      // hash password
-          /*  bcrypt.genSalt(10, (err, salt) => 
-            bcrypt.hash(newUser.password, salt, (err, hash) => {
-                if(err) throw err;
-                newUser.password = hash;
-                newUser.save()
-                .then(user => {
-                    res.redirect('/login')
-                })
-                .catch(err => console.log(err))
-           }))      */
+     // hash password
             bcrypt.hash(newUser.password, saltRounds, (err, hash) => {
                 if(err) throw err
                 newUser.password = hash
                 newUser.save()
                 .then(user => {
-                    req.flash('successMsg', 'Registration Was Successful, You Can Now Login ');
-                    res.redirect('/login')
-                })
-                
+                    success.push({ msg: 'Registration Successful, You Can Now Login' })
+                    res.render('login', {
+                        success
+                    })
+                })               
             })
-                /* .catch(err => console.log(err)) */
+                .catch(err => console.log(err))
             }
         })      
     }
 })
+
 
 module.exports = router

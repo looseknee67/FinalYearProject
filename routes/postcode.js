@@ -32,15 +32,12 @@ router.post('/postcodeCheck', (req, res) =>{
         .then( post => {
             
             if(post) {
-                /* req.flash('successMsg', 'Your Postcode Is valid, Please complete registration'); 
-                res.redirect('/register') + postcode; */
                 
-        success.push({ msg: 'Your Postcode Is valid, Please complete registration' })  
-         res.render('register',   { 
-            success,   
-            postcode  
-         }) 
-           
+                success.push({ msg: 'Your Postcode Is valid, Please complete registration' })  
+                    res.render('register',   { 
+                        success,   
+                            postcode  
+         })            
           
         }else{
             errors.push({ msg: 'Postcode Not Found' })

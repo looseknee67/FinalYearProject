@@ -5,14 +5,21 @@ if (process.env.NODE_ENV !== 'production') {
 const express = require('express')
 const expressLayouts = require('express-ejs-layouts')
 const bodyParser = require('body-parser')
-
+const passport = require('passport')
+const flash = require('connect-flash');
+const session = require('express-session');
 
 const app = express()
 
+// passport config
+require('./config/passport')(passport);
+
 // Routes (import)
 const indexRouter = require('./routes/index')
-const userRouter = require('./routes/users')
+/* const userRouter = require('./routes/users') */
 const postcodeRouter = require('./routes/postcode')
+const registerRouter = require('./routes/register')
+const loginRouter = require('./routes/login')
 
 // View
 app.use(expressLayouts)
@@ -20,14 +27,41 @@ app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
 app.set('layout', 'layouts/layout')
 app.use(express.static(__dirname + '/public'))
+/* app.use(express.urlencoded({ extended: false })) */
 
 // Bodyparser
 app.use(bodyParser.urlencoded({ extended: false }))
+/* app.use(bodyParser.json())  */
+
+// Express session
+app.use(
+  session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+  })
+);
+
+// passport
+app.use(passport.initialize())
+app.use(passport.session())
+
+// Connect flash
+app.use(flash());
+
+// Global variables
+app.use(function(req, res, next) {
+  res.locals.error = req.flash('error');
+  res.locals.successMsg = req.flash('success_msg');
+  next();
+});
 
 // Routes (use)
 app.use('/', indexRouter)
-app.use('/', userRouter)
+/* app.use('/', userRouter) */
 app.use('/', postcodeRouter)
+app.use('/', registerRouter)
+app.use('/', loginRouter)
 
 //Mongoose
 const mongoose = require('mongoose')
