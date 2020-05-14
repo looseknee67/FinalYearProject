@@ -5,8 +5,6 @@ const bcrypt = require ('bcryptjs')
 
 const saltRounds = 10;
 
-
-
 //login page
 router.get('/login', (req, res) => {
     res.render('login')

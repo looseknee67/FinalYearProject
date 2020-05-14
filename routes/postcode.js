@@ -11,13 +11,12 @@ router.get ('/postcodeCheck', (req, res) =>{
 
 // checkpostcode
 router.post('/postcodeCheck', (req, res) =>{
-    const { postcode } = req.body;
-    console.log('first post' + postcode)////////////////////////////////////////////////////
-    const errors = []
+    const  post  = req.body.postcode.replace(/ /g, "");; // takes out any spaces
     
-   /*  if(!postcode){
-    errors.push({ msg: 'Please Enter A Postcode'})
-    } */
+    const  postcode = post.replace(/.{3}$/,' $&');// adds in space before last 3 digits
+ 
+    const errors = [] 
+   
     if( !postcode ){
         errors.push({ msg: 'Please Enter A Valid Postcode'})
     }
@@ -30,17 +29,17 @@ router.post('/postcodeCheck', (req, res) =>{
     }else{
         Postcode.findOne({ postcode: postcode })
         .then( post => {
-            console.log('help1' + post )////////////////////////////////
+            
             if(post) {
-                console.log('help2' + post )////////////////////////////////////////
-        errors.push({ msg: 'Postcode Found' })       
-        res.render('postcodeCheck', {
+                
+       /*  errors.push({ msg: 'Postcode Found' })  */      
+        res.render('register', {
             errors,
             postcode
         })
         }else{
             errors.push({ msg: 'No Go' })
-            res.render('postcodeCheck', {
+            res.render('nogo', {
                 errors,
                 postcode
             })

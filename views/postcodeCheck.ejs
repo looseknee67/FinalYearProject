@@ -3,7 +3,7 @@
     <h1><center>Postcode Check</center></h1><br>
   <div class="form-group">
   <label for="postcode">Enter Postcode</label>
-  <input type="text" 
+  <input type="text" onkeyup="this.value=this.value.toUpperCase()"
   class="form-control" 
   id="postcode"
   name="postcode"
@@ -16,6 +16,10 @@
     <a href="/" class="btn btn-info">Cancel</a>
     
     </div>
-    <%- include('../views/partials/errorMessages.ejs') %>
-  </form>
+    <p class="lead mt-4">Already Have An Account? <a href="/login" style="color: #15C7FF">Login</a>
+      <%- include('../views/partials/errorMessages.ejs') %>
+    </form>
+    
+
+  
   
