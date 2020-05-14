@@ -1,0 +1,11 @@
+<% if(typeof success != 'undefined'){ %> <% success.forEach(function(success) { %>
+    <div class="alert alert-success" role="alert">
+
+      <%= success.msg %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true" style="color:black" >&times;</span>
+      </button>
+    </div>
+    <% }); %> 
+    <% } %>
+    

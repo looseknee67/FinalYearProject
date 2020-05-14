@@ -23,7 +23,7 @@ router.get('/account', (req, res) => {
 // Handle Register
 router.post('/register', (req, res) => {
   const { username, password, password2, postcode} = req.body;
-  console.log( username, password, password2, postcode)//////////////////////////////////
+
   let errors = [];
 
   //check inputs
@@ -52,9 +52,9 @@ if(errors.length > 0){
     User.findOne({ username: username })
    
     .then(user => {
-        console.log(username)/////////////////////////////////////////////////////
+       
         if(user) {
-            console.log(user)///////////////////////////////////////////////////////
+           
             errors.push({ msg: 'Username is unavailable' })
             res.render('register', {
                 errors,
@@ -85,9 +85,10 @@ if(errors.length > 0){
                 newUser.password = hash
                 newUser.save()
                 .then(user => {
-
+                    req.flash('successMsg', 'Registration Was Successful, You Can Now Login ');
+                    res.redirect('/login')
                 })
-                res.redirect('/login')
+                
             })
                 /* .catch(err => console.log(err)) */
             }

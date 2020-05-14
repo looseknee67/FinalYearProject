@@ -8,4 +8,10 @@
 <br>
 <br>
 <br>
-<h1> Postcode Found</h1>
+<h1> Postcode Found  "<%= typeof postcode != 'undefined' ? postcode: '' %>"</h1>
+
+Do you wish to proceed with registration?
+<div>
+    <a href="/register" class="btn btn-success btn-md" style="margin-right:10px">Yes</button>
+    <a href="/" class="btn btn-info">No</a>
+    </div>

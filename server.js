@@ -3,9 +3,11 @@ if (process.env.NODE_ENV !== 'production') {
   }
 
 const express = require('express')
-const app = express()
 const expressLayouts = require('express-ejs-layouts')
 const bodyParser = require('body-parser')
+
+
+const app = express()
 
 // Routes (import)
 const indexRouter = require('./routes/index')

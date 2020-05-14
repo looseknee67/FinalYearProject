@@ -16,6 +16,7 @@ router.post('/postcodeCheck', (req, res) =>{
     const  postcode = post.replace(/.{3}$/,' $&');// adds in space before last 3 digits
  
     const errors = [] 
+    const success = [] 
    
     if( !postcode ){
         errors.push({ msg: 'Please Enter A Valid Postcode'})
@@ -31,14 +32,18 @@ router.post('/postcodeCheck', (req, res) =>{
         .then( post => {
             
             if(post) {
+                /* req.flash('successMsg', 'Your Postcode Is valid, Please complete registration'); 
+                res.redirect('/register') + postcode; */
                 
-       /*  errors.push({ msg: 'Postcode Found' })  */      
-        res.render('register', {
-            errors,
-            postcode
-        })
+        success.push({ msg: 'Your Postcode Is valid, Please complete registration' })  
+         res.render('register',   { 
+            success,   
+            postcode  
+         }) 
+           
+          
         }else{
-            errors.push({ msg: 'No Go' })
+            errors.push({ msg: 'Postcode Not Found' })
             res.render('nogo', {
                 errors,
                 postcode
@@ -49,5 +54,6 @@ router.post('/postcodeCheck', (req, res) =>{
     })
 }
 })
+
 
 module.exports = router
