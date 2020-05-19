@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const bcrypt = require ('bcryptjs')
+const { forwardAuthenticated } = require('../config/auth')
 
 
 // load user model
@@ -11,7 +12,7 @@ const saltRounds = 10;
 
 
 // register page
-router.get('/register', (req, res) => {
+router.get('/register', forwardAuthenticated, (req, res) => {
     res.render('register')
 })
 
@@ -82,7 +83,7 @@ if(errors.length > 0){
                     })
                 })               
             })
-                .catch(err => console.log(err))
+                //.catch(err => console.log(err))
             }
         })      
     }

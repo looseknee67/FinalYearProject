@@ -1,10 +1,11 @@
 const express = require('express')
 const router = express.Router()
+const { forwardAuthenticated } = require('../config/auth')
 
 const Postcode = require('../models/Postcode')
 
 
-router.get ('/postcodeCheck', (req, res) =>{
+router.get ('/postcodeCheck', forwardAuthenticated, (req, res) =>{
     res.render('postcodeCheck')
 })
 
