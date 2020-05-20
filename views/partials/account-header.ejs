@@ -1,23 +1,35 @@
-<header>
-    
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top custom-bg-dark">
+<div>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top custom-bg-dark">
       <img alt="logo" src="/images/house.png" style="max-height: 35px">
-      
-      <a class="navbar-brand" href='/'>Local Doings</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        
-        <ul class="navbar-nav ml-auto">
-         
-          <li class="nav-item">
-            <a class="nav-link" href="/account"><%= name %>'s Account</a>
+      <a class="navbar-brand" href="/account">Local Doings</a>
+      <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/logout"><i class="fas fa-home"></i> Logout<span class="sr-only">(current)</span></a>
           </li>
-        </ul>
-      </div>
-    
-    </nav>   
-  
-</header>
+          </ul>
+</div>
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <a href="/account"><i class="fas fa-house-user"></i> Account Home</a>
+  <a href="/swapShop"><i class="fas fa-shopping-basket"></i> Swap Shop</a>
+  <a href="/localChat"><i class="far fa-comments"></i> Chat</a>
+  <a href="/messageBoard"><i class="fas fa-bullhorn"></i> Message Board</a>
+  <a href="/logout"> <i class="fas fa-walking"></i> Logout</a>
+</div>
+
+<div id="main">
+  <button class="openbtn" onclick="openNav()">&#9776; <%= name %>'s Menu</button>  
+  <%- body %>
+</div>
+
+<script>
+function openNav() {
+  document.getElementById("mySidebar").style.width = "240px";
+  document.getElementById("main").style.marginLeft = "240px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
