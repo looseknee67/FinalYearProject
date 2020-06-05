@@ -11,7 +11,7 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const socketio = require('socket.io')
 const auto = "Admin"
-const formatMessage = require('./utils/messages')
+const formatMessage = require('./utils/chats')
 
 const app = express()
 const server = http.createServer(app) 
