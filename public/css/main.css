@@ -77,7 +77,8 @@ footer#custom-footer {
     font-size: .75rem;
     position: fixed;
     bottom: 0;
-    width: 100%;
+    left: 0;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -94,8 +95,12 @@ footer#custom-footer {
         padding-bottom: 5px;
         background-color: #15C7FF;
     }   
-}
 
+.logo {
+    width: 100%;
+    height: auto;
+} 
+}
 /* @media screen and (max-width: 800) {
     .background{
     background-color:   #2F4054;
