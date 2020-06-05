@@ -20,7 +20,7 @@ router.get('/swapShop', (req, res) => {
 
 // chat
 router.get('/localChat', (req, res) => {
-    res.render('localChat', {layout: 'account-layout'})
+    res.render('localChat', {layout: 'account-layout', name: req.user.username})
 })   
 
 // user account
