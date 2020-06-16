@@ -9,10 +9,6 @@ router.get('/', (req, res) => {
     res.render('index')
 })
 
-// messageboard
-  router.get('/messageBoard', (req, res) => {
-    res.render('messageboard', {layout: 'account-layout'})
-})   
 
 // swapshop
 router.get('/swapShop', (req, res) => {

@@ -78,7 +78,7 @@ router.get('/posts/detail/:id',(req,res) =>{
     }) 
 })   */
 
-// delete comment //
+// delete comment 
 router.get('/comment/delete/:id',(req,res) =>{
     /*  Comments.findOneAndUpdate(req.params.id, (err, commentDetail) => {
          if (err) {
