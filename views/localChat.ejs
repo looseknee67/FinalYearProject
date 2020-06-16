@@ -9,7 +9,11 @@
        
         <h3><i class="fas fa-users"></i> Connected</h3>
 
-  
+        <ul>
+          <% connected.forEach(function(user){ %>
+          <li><%- user.username %></li>
+        <%});%>
+     </ul>
       
     </div>
       <div class="chat-messages">
