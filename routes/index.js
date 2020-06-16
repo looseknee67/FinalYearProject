@@ -28,7 +28,6 @@ router.get('/localChat', (req, res) => {
 
        if(connected.indexOf(user) == -1){           
         connected.push(user); 
-        console.log(connected); 
        }    
         }),              
     
@@ -42,11 +41,10 @@ router.get('/localChat/endchat', (req, res) => {
       }).then(user => {
 
        if(user !== ""){
-        return connected.splice(0, connected.length);   /////     (user, 1)[0];
+        return connected.splice(0, connected.length);   
         
        }
-            /* connected.delete(user); 
-            console.log(user.username);    */    
+            
         }),
         
         res.render('account', {layout: 'account-layout', name: user.user})
@@ -54,7 +52,7 @@ router.get('/localChat/endchat', (req, res) => {
 }) 
 
 // user account
-router.get('/account',  (req, res) => {                                        //ensureAuthenticated,
+router.get('/account',  (req, res) => {                                        
     res.render('account', {layout: 'account-layout', name: req.user.username})
     
 })

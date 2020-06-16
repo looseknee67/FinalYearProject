@@ -17,6 +17,8 @@ const app = express()
 const server = http.createServer(app) 
 const io = socketio(server)
 
+const Comments = require('./models/comments')
+
 // passport config
 require('./config/passport')(passport);
 
@@ -25,6 +27,8 @@ const indexRouter = require('./routes/index')
 const postcodeRouter = require('./routes/postcode')
 const registerRouter = require('./routes/register')
 const loginRouter = require('./routes/login')
+const postController = require('./routes/postController') 
+const userController = require('./routes/userMessageBoard') 
 
 // View
 app.use(expressLayouts)
@@ -91,6 +95,8 @@ app.use('/', indexRouter)
 app.use('/', postcodeRouter)
 app.use('/', registerRouter)
 app.use('/', loginRouter)
+app.use('/', postController) 
+app.use('/', userController) 
 
 //Mongoose
 const mongoose = require('mongoose')
@@ -98,6 +104,18 @@ mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTo
 const db = mongoose.connection
 db.on('error', error => console.error(error))
 db.once('open', () => console.log('Connected to Database'))
+
+
+// get and save new comments
+io.on('connection',function(socket){
+  socket.on('comment',function(data){
+      var commentData = new Comments(data);
+      commentData.save();
+      socket.broadcast.emit('comment', (data));
+      
+  });
+
+});
 
 
 
