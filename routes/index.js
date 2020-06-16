@@ -1,7 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const { ensureAuthenticated } = require('../config/auth')
-//const user = require('../models/User') 
+const user = require('../models/User') 
+const connected = []
 
 // homepage
 router.get('/', (req, res) => {
@@ -20,18 +21,42 @@ router.get('/swapShop', (req, res) => {
 
 // chat
 router.get('/localChat', (req, res) => {
-    res.render('localChat', {layout: 'account-layout', name: req.user.username})
-})   
+
+    user.findOne({
+        username: req.user.username
+      }).then(user => {
+
+       if(connected.indexOf(user) == -1){           
+        connected.push(user); 
+        console.log(connected); 
+       }    
+        }),              
+    
+            res.render('localChat', {layout: 'account-layout', name: user.user, connected: connected});                                       
+}) 
+// end chat
+router.get('/localChat/endchat', (req, res) => {
+
+    user.findOne({
+        username: req.user.username
+      }).then(user => {
+
+       if(user !== ""){
+        return connected.splice(0, connected.length);   /////     (user, 1)[0];
+        
+       }
+            /* connected.delete(user); 
+            console.log(user.username);    */    
+        }),
+        
+        res.render('account', {layout: 'account-layout', name: user.user})
+    
+}) 
 
 // user account
 router.get('/account',  (req, res) => {                                        //ensureAuthenticated,
     res.render('account', {layout: 'account-layout', name: req.user.username})
     
-})
-
-router.get('/nogo',(req, res) => {
-    res.render('nogo', { layout: 'account-layout' })
-     
 })
 
 
