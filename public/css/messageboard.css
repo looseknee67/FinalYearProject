@@ -1,0 +1,108 @@
+.postDetail {
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+   
+}
+
+#chat{
+    width: 1000px;
+    height: 600px;
+    background: #415975;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#coms {
+     background-color: #eefaff;  
+    color: black;
+    width: auto;
+    border-radius: 5px ;
+    padding: 10px 10px 10px 10px;
+    width: 800px;
+   margin-left: 0;
+   margin-right: auto;
+   margin-top: 20px;
+   word-wrap: break-word;
+   font-size: large;
+}
+
+.newComment {
+    color: black;
+    width: 900px;
+     margin-left: auto;
+   margin-right: auto;
+   padding-bottom: 40px;
+
+}
+
+ #comment {
+    color: black;
+    width: 400px;
+    margin-left: auto;
+   margin-right: auto;
+
+ }
+
+.size {
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+#poster{
+    color:blue;
+    font-style: italic;
+    font-size: small;
+}
+
+#created{
+    color: yellow;
+    font-style: italic;
+    
+}
+
+.comments{
+    overflow-y:auto;
+    overscroll-behavior-y: contain;
+    scroll-snap-type: y mandatory;
+    max-height: 450px;
+    width: 900px;
+    margin-left: auto;
+   margin-right: auto;
+   
+} 
+
+hr {
+    background-color: gray; height: 1px; border: 0;
+}
+
+
+ td a { 
+    display: block; 
+    padding: 10px;
+    font-size: large; 
+ }
+
+ #tData {
+     color: white;
+     text-align: center;
+     text-decoration: none;
+ }
+
+ a {
+    text-decoration: none;
+ }
+
+ #editDelete {
+     float: right;
+    
+ }
+
+ #userPosts {
+     width: 900px;
+     margin-left: auto;
+     margin-right: auto;
+     
+ }
