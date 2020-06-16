@@ -3,10 +3,17 @@
 }
 
 body {
+    height: 100%;
     margin: 0;
     padding: 0;
+    overflow:auto; 
+    font-size: 16px;
+    background: #2F4054;
+} */
+html {
+    height: 100%;
+    /* overflow:auto; */
 }
-
 form.custom-form{
     max-width: 30rem;
     display: flex;
@@ -20,9 +27,9 @@ form.custom-form{
 
 .background {
     background-color: #2F4054;
-    height: 97vh;
+    height: 100vh; /*97vh; */
     width: 100vw;
-    
+    overflow: auto;
 }
 
 .display-4-custom {
@@ -71,6 +78,10 @@ li.nav-item a:focus {
     padding-top: 50px;
 }
 
+#main {
+    min-height: 100%;
+    overflow:auto;
+}
 footer#custom-footer {
     height: 3rem;
     background-color: #15C7FF;
@@ -78,6 +89,7 @@ footer#custom-footer {
     position: fixed;
     bottom: 0;
     left: 0;
+    right: 0;
     width: 100vw;
     display: flex;
     justify-content: center;
@@ -94,15 +106,20 @@ footer#custom-footer {
         padding-left: 20px;
         padding-bottom: 5px;
         background-color: #15C7FF;
-    }   
-
-.logo {
-    width: 100%;
-    height: auto;
-} 
+    } 
+    
+    .logo {
+        width: 100%;
+        height: auto;
+    } 
+}
+#userInfo {
+    max-height: 500px;
+    overflow: auto;
 }
 /* @media screen and (max-width: 800) {
     .background{
     background-color:   #2F4054;
     }
 } */
+

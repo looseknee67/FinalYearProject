@@ -4,7 +4,11 @@
     margin-right: auto;
    
 }
-
+#accBtn {
+    width:900px;
+    margin-left: auto;
+    margin-right: auto;
+}
 #chat{
     width: 1000px;
     height: 600px;
@@ -12,6 +16,8 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+
 
 #coms {
      background-color: #eefaff;  
@@ -27,15 +33,26 @@
    font-size: large;
 }
 
+/* #coms:nth-child(odd) {
+    background: #defff7;
+     margin-left: 0px; 
+}
+#coms:nth-child(even) {
+    background: #FFF7DE;
+    margin-right: 0px;
+} */
 .newComment {
     color: black;
     width: 900px;
-     margin-left: auto;
-   margin-right: auto;
-   padding-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 40px;
+  /*  position: fixed;
+   bottom: 50px; */
+   /* text-align: center;  */
+  /*  padding-top: 20px; */
 
 }
-
  #comment {
     color: black;
     width: 400px;
@@ -43,6 +60,10 @@
    margin-right: auto;
 
  }
+/* #send{
+    color: black;
+    
+} */
 
 .size {
     width: 900px;
@@ -63,17 +84,24 @@
     
 }
 
+
 .comments{
     overflow-y:auto;
     overscroll-behavior-y: contain;
     scroll-snap-type: y mandatory;
+   /*  overflow: hidden; */
     max-height: 450px;
     width: 900px;
     margin-left: auto;
    margin-right: auto;
-   
+    /* overflow-y: scroll; */
+    /* scroll-snap-align: end;*/
+    
+  
 } 
-
+/* .comments > div > div:last-child {
+    scroll-snap-align: end;
+  } */
 hr {
     background-color: gray; height: 1px; border: 0;
 }
@@ -81,6 +109,7 @@ hr {
 
  td a { 
     display: block; 
+    /* border: 1px solid black; */
     padding: 10px;
     font-size: large; 
  }
@@ -100,9 +129,18 @@ hr {
     
  }
 
- #userPosts {
+/*  #postSize{
+
+ height: 50px;
+ overflow: auto;
+ } */
+
+ #userInfo {
+     max-height: 600px;
      width: 900px;
      margin-left: auto;
      margin-right: auto;
+     overflow: auto;
      
  }
+ 
