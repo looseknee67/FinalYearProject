@@ -20,17 +20,17 @@
 
 
 #coms {
-     background-color: #eefaff;  
+    background-color: #eefaff;  
     color: black;
     width: auto;
     border-radius: 5px ;
     padding: 10px 10px 10px 10px;
     width: 800px;
-   margin-left: 0;
-   margin-right: auto;
-   margin-top: 20px;
-   word-wrap: break-word;
-   font-size: large;
+    margin-left: 0;
+    margin-right: auto;
+    margin-top: 20px;
+    word-wrap: break-word;
+    font-size: large;
 }
 
 /* #coms:nth-child(odd) {
@@ -109,7 +109,6 @@ hr {
 
  td a { 
     display: block; 
-    /* border: 1px solid black; */
     padding: 10px;
     font-size: large; 
  }
@@ -128,12 +127,6 @@ hr {
      float: right;
     
  }
-
-/*  #postSize{
-
- height: 50px;
- overflow: auto;
- } */
 
  #userInfo {
      max-height: 600px;
