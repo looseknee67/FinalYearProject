@@ -42,7 +42,7 @@ form.custom-form{
 }
 .custom2-bg-dark {
     background-color: #2F4054 !important;/*  #27331D; *//* #2F4054; */
-    padding: 32px 32px !important;
+    padding: 10px 32px !important;
 }
 nav.navbar {
     height: 3rem;
@@ -122,4 +122,16 @@ footer#custom-footer {
     background-color:   #2F4054;
     }
 } */
+.lead{
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+.index-buttons {
+  text-align: center;
+  padding-top: 20px;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
