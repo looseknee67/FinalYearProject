@@ -1,5 +1,4 @@
-<h1>Sell, Donate Or Buy</h1>
- 
+<h1></h1>
 <div class="catagories">
     <h2>Catagories</h2><br>
     
@@ -18,19 +17,78 @@
                     <div id="cats">
                     <a href = '#'>Misc</a><br>
                     </div><br> 
-</div> 
+</div> <%# end cats%>
 
-<div id="middle">
+<a href="/createSwap" class="btn btn-info">Add New Item <i class="fas fa-window-close"></i></a>
+
+<div id="items">
+    <h1>Sell, Donate or Buy</h1>
     <div id = "itemList">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis nisi a nunc molestie varius id non augue. Maecenas ut dolor aliquam erat finibus facilisis. Aenean non ligula lectus. Morbi augue ex, ornare sit amet sapien eu, varius malesuada nunc. Mauris eu metus eu leo fringilla placerat. Sed eros enim, sodales id tincidunt quis, pellentesque in diam. Duis vitae lacus auctor, gravida ipsum in, placerat odio. Vivamus interdum sed odio lobortis aliquet.
+            
+        <% 
+      
+        if (typeof swaps != 'undefined' && swaps.length > 0) { 
+            
+            var srNo = 0;
+                swaps.forEach( function  ( swap ){            
+                    srNo = srNo + 1; %>
+                    
+                   
+<div>
+    <div id="stuff">
+       <h3> <%= swap.title %></h3>        
+       <hr> 
+        <img id="photo" src="data:image/<%=swap.img.contentType%>;base64, <%=swap.img.data.toString('base64')%>"> <br><br> 
 
-    Vestibulum ut lorem turpis. Nullam sed malesuada enim. Duis ut lacus erat. Duis consectetur massa ut nisi rutrum pellentesque. Proin vel mollis tortor. Cras ullamcorper vehicula mauris, in laoreet eros faucibus a. Aenean sed leo orci.
+<p> 
+     <button onclick="showItem(id)" id="<%=swap%>">See Details</button> 
+     <%# <a href="#itemModal" data-toggle="modal" data-item-id="">Details</a> %>
+     <a href="/item/detail/<%= swap._id %>">Details</a>
+</p> 
+
+<script> 
+  function showItem(item){
+
     
-    Donec nunc neque, egestas pretium odio ac, tincidunt commodo lorem. Nulla sodales fringilla pretium. Sed egestas nunc ut tincidunt dapibus. In vitae enim sit amet nulla finibus finibus sit amet vel nibh. Nam consectetur ex vitae massa imperdiet, nec ultricies erat commodo. Maecenas at tortor dui. Mauris condimentum suscipit ornare. Maecenas egestas arcu sed orci porttitor, volutpat rutrum quam varius. Duis viverra, ipsum non lobortis feugiat, sapien ante consectetur nisl, eget fermentum massa lacus quis tortor. Vivamus ac dignissim neque, ut auctor orci.
     
-    isi vitae massa egestas fringilla id eu quam. Fusce feugiat efficitur faucibus. Mauris euismod pulvinar augue, nec consectetur lacus accumsan sed. Nulla facilisi. Ut dolor magna, cursus scelerisque sapien eget, tempor viverra diam.
+    $("#itemModal").modal();
+    console.log(item);
+  }
+  </script>
+<%# Modal %>
+<div class="modal fade" id="itemModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <%# Modal content %>
+      <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title" style="color:black" name="title" value="" id="header"></h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          
+        </div>
+        <div class="modal-body">
+         
+          <p style="color:black">Stuff in the middle</p>
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div> <%# modal end %>
+  
+</div> <%# end stuff %> 
+
 </div> 
-</div>
-<div id ="right">
-Hello
-</div> 
+      <% });      
+      } else {  %>
+      <div><h1> No Data </h1></div>
+      <% } %>
+
+</div>  <%# end itemlist %>    
+      
+</div> <%# end items %>
+
+      
