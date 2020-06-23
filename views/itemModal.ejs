@@ -1,0 +1,44 @@
+<script>
+    $(document).ready(function(){
+            $("#itemModal").modal('show');
+        });
+    </script>
+    <form id = "modal">
+    <%# Modal %>
+    <div class="modal fade" id="itemModal" role="dialog" >
+        <div class="modal-dialog">
+        
+          <%# Modal content %>
+          <div class="modal-content" >
+            <div class="modal-header">
+                <h4 class="modal-title" style="color:black" name="title" value="" id="header"><%= itemDetail.title %></h4>
+              <%# <button type="button" class="close" data-dismiss="modal"  >&times;</button> %>
+              
+            </div>
+            <div class="modal-body">
+             
+              <p style="color:black"><%= itemDetail.desc %></p>
+              <img id="photo" src="data:image/<%=itemDetail.img.contentType%>;base64, <%=itemDetail.img.data.toString('base64')%>"> <br><br> 
+            </div>
+            <p style="color:black"><%= itemDetail.catagory %></p>
+            <p style="color:black"><%= itemDetail.user %></p>
+           <a href="/contactSeller" >Contact Seller</a> 
+            <div class="modal-footer">
+             <button type="button" class="btn btn-success" id="submit">Close</button> -->
+           
+            </div>
+          </div>
+          
+        </div>
+      </div> <%# modal end %>
+      
+    </div> <%# end stuff %> 
+    </form>
+    
+    <script>
+    $('#submit').click(function () {
+        
+        window.location.href = "/swapShop";
+    });
+    
+    </script>

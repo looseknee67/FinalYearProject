@@ -1,0 +1,42 @@
+
+<h1>Add your item here...</h1> 
+<hr>
+
+<form action="/newSwap" method="POST" enctype="multipart/form-data"> 
+    <div class="form-group row">
+        <div class="form-group"> 
+            <label for="title">Item Name</label> 
+            <input type="text" id="title" class="form-control" placeholder="Item Name" 
+                   value="" name="title" required> 
+        </div>
+        <div class="form-group"> 
+            <label for="desc">Item Description</label> 
+            <textarea id="desc" name="desc" value="" rows="2" 
+            class="form-control" placeholder="Item Description" required> 
+            </textarea> 
+        </div> 
+        <div class="form-group"> 
+            <label for="image">Upload Image</label> 
+            <input type="file" id="image" 
+             name="image" value="" required> 
+        </div>
+
+        <div class="form-group"> 
+        <select id="catagory"  name="catagory" class="form-control">
+            <option>Household</option>
+            <option>Garden</option>
+            <option>Kids</option>
+            <option>DIY</option>
+            <option>Misc</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+        <button type="submit" class="btn btn-success">
+            <i class="fa fa-database"></i>
+           Create
+        </button>
+        </div>
+</div> 
+
+</form>
