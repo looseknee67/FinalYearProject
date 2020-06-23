@@ -10,11 +10,6 @@ router.get('/', (req, res) => {
 })
 
 
-// swapshop
-router.get('/swapShop', (req, res) => {
-    res.render('swapShop', {layout: 'account-layout'})
-})   
-
 // chat
 router.get('/localChat', (req, res) => {
 
