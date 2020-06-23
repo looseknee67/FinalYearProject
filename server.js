@@ -29,6 +29,7 @@ const registerRouter = require('./routes/register')
 const loginRouter = require('./routes/login')
 const postController = require('./routes/postController') 
 const userController = require('./routes/userMessageBoard') 
+const swapRouter = require('./routes/swaps') 
 
 // View
 app.use(expressLayouts)
@@ -96,7 +97,8 @@ app.use('/', postcodeRouter)
 app.use('/', registerRouter)
 app.use('/', loginRouter)
 app.use('/', postController) 
-app.use('/', userController) 
+app.use('/', userController)
+app.use('/', swapRouter)  
 
 //Mongoose
 const mongoose = require('mongoose')

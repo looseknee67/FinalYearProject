@@ -42,8 +42,6 @@ router.get('/swapShop', (req, res) => {
     }); 
 }); 
 
- 
-
 // Uploading the image 
 router.post('/newSwap', upload.single('image'), (req, res, next) => { 
   
