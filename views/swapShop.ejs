@@ -14,6 +14,9 @@
                 <div id="cats">
                 <a href = '#'>DIY</a><br>
                 </div><br>
+                  <div id="cats">
+                    <a href = '#'>Pets</a><br>
+                    </div><br>
                     <div id="cats">
                     <a href = '#'>Misc</a><br>
                     </div><br> 
@@ -41,8 +44,6 @@
         <img id="photo" src="data:image/<%=swap.img.contentType%>;base64, <%=swap.img.data.toString('base64')%>"> <br><br> 
 
 <p> 
-     <button onclick="showItem(id)" id="<%=swap%>">See Details</button> 
-     <%# <a href="#itemModal" data-toggle="modal" data-item-id="">Details</a> %>
      <a href="/item/detail/<%= swap._id %>">Details</a>
 </p> 
 

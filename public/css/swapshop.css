@@ -98,3 +98,12 @@ margin-left: 17px;
 text-align: center;
 
 }
+
+.modal-title {
+  text-align: center;
+  width: 100%;
+}
+.modal-body {
+  text-align: center;
+  width: 100%;
+}
