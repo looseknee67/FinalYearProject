@@ -6,6 +6,7 @@ const router = express.Router()
 
 var Posts = require('../models/posts');
 var Comments = require('../models/comments');
+var Swaps = require('../models/swaps');
 
 // get user posts
 router.get('/postList', (req, res) => {
@@ -31,6 +32,17 @@ router.get('/commentList', (req, res) => {
     })
 })
 
+// get user swaps
+router.get('/swapList', (req, res) => {
+    const user = Swaps.find({user: req.user.username, swapsId: Swaps.postId});
+    Swaps.find(user).exec((err, docs) => {
+        if(!err){
+            res.render('userSwaps',{layout: 'account-layout', list: docs })
+           
+        }
+
+    })
+})
 
 
 module.exports = router
