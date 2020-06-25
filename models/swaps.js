@@ -10,7 +10,8 @@ img: {
     contentType: String 
 },
 user: String,
-catagory: String
+catagory: String,
+price: Number
 },
 {
     timestamps: true
