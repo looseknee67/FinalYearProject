@@ -45,25 +45,28 @@ router.get('/swapShop', (req, res) => {
 // Uploading the image 
 router.post('/newSwap', upload.single('image'), (req, res, next) => { 
   
-    var obj = { 
-        title: req.body.title, 
-        desc: req.body.desc, 
-        img: { 
+    const swap = new Swaps(); 
+
+        swap.title =req.body.title, 
+        swap.desc =req.body.desc, 
+        swap.img = { 
             data: fs.readFileSync('./uploads/' + req.file.filename), 
             contentType: 'image/png'
         },
-        user: req.user.username,
-        catagory: req.body.catagory
-    } 
-     Swaps.create(obj,  (err, swaps) => { 
-        if (err) { 
-            console.log(err); 
+        swap.user =req.user.username,
+        swap.catagory = req.body.catagory,
+        swap.price =req.body.price
+  
+     swap.save((err) => { 
+        if (!err) { 
+           Swaps.find({}, (err, swaps) => {
+            res.render('swapShop', {layout: 'account-layout', swaps: swaps, user: req.user.username}); 
+        } )
+    } else { 
+        console.log('An error occured' + err);
+            
         } 
-        else { 
-            swaps.save(); 
-             res.render('swapShop', {layout: 'account-layout', swaps: swaps, user: req.user.username}); 
-        } 
-    }); 
+     }) 
 }); 
 
 // modal
