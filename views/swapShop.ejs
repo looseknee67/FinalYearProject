@@ -3,29 +3,33 @@
     <h2>Catagories</h2><br>
     
     <div id="cats">
-    <a href = "#">Household</a>
+    <a href = "/household">Household</a>
     </div><br> 
         <div id="cats">
-        <a href = '#'>Garden</a><br>
+        <a href = '/garden'>Garden</a><br>
         </div><br>       
             <div id="cats">
-            <a href = '#'>Kids</a><br>
+            <a href = '/kids'>Kids</a><br>
             </div><br>
                 <div id="cats">
-                <a href = '#'>DIY</a><br>
+                <a href = '/diy'>DIY</a><br>
                 </div><br>
                   <div id="cats">
-                    <a href = '#'>Pets</a><br>
+                    <a href = '/pets'>Pets</a><br>
                     </div><br>
                     <div id="cats">
-                    <a href = '#'>Misc</a><br>
+                    <a href = '/misc'>Misc</a><br>
+                    </div><br> 
+                    <div id="cats">
+                    <a href = '/swapshop'>Show All</a><br>
                     </div><br> 
 </div> <%# end cats%>
 
-<a href="/createSwap" class="btn btn-info">Add New Item <i class="fas fa-window-close"></i></a>
+
 
 <div id="items">
     <h1>Sell, Donate or Buy</h1>
+    <a href="/createSwap" class="btn btn-info">Add New Item <i class="fas fa-window-close"></i></a>
     <div id = "itemList">
             
         <% 
@@ -34,8 +38,7 @@
             
             var srNo = 0;
                 swaps.forEach( function  ( swap ){            
-                    srNo = srNo + 1; %>
-                    
+                    srNo = srNo + 1; %>                    
                    
 <div>
     <div id="stuff">
@@ -43,9 +46,9 @@
        <hr> 
         <img id="photo" src="data:image/<%=swap.img.contentType%>;base64, <%=swap.img.data.toString('base64')%>"> <br><br> 
 
-<p> 
+<div id="link"> 
      <a href="/item/detail/<%= swap._id %>" style="color: #15C7FF">Details</a>
-</p> 
+</div> 
 
 <script> 
   function showItem(item){
@@ -85,7 +88,7 @@
 </div> 
       <% });      
       } else {  %>
-      <div><h1> No Data </h1></div>
+      <div><h1> No Items Available </h1></div>
       <% } %>
 
 </div>  <%# end itemlist %>    

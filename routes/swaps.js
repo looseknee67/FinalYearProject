@@ -81,6 +81,79 @@ router.get('/item/detail/:id',(req,res) =>{
         })
     })
  
+    // get household
+    router.get('/household', (req, res) => {
+        const house = Swaps.find({catagory: "Household"});
+    
+        Swaps.find(house).exec((err, docs) => {
+            
+            if(!err){           
+                res.render('swapShop', {layout: 'account-layout',  swaps:docs })
+            }       
+        })
+    });
+
+     // get garden
+     router.get('/garden', (req, res) => {
+        const garden = Swaps.find({catagory: "Garden"});
+    
+        Swaps.find(garden).exec((err, docs) => {
+            
+            if(!err){           
+                res.render('swapShop', {layout: 'account-layout',  swaps:docs })
+            }       
+        })
+    });
+
+    // get kids
+    router.get('/kids', (req, res) => {
+        const kid = Swaps.find({catagory: "Kids"});
+    
+        Swaps.find(kid).exec((err, docs) => {
+            
+            if(!err){           
+                res.render('swapShop', {layout: 'account-layout',  swaps:docs })
+            }       
+        })
+    });
+
+    // get diy
+    router.get('/diy', (req, res) => {
+        const diy = Swaps.find({catagory: "DIY"});
+    
+        Swaps.find(diy).exec((err, docs) => {
+            
+            if(!err){           
+                res.render('swapShop', {layout: 'account-layout',  swaps:docs })
+            }       
+        })
+    });
+
+   
+    // get pets
+    router.get('/pets', (req, res) => {
+        const pets = Swaps.find({catagory: "Pets"});
+    
+        Swaps.find(pets).exec((err, docs) => {
+            
+            if(!err){           
+                res.render('swapShop', {layout: 'account-layout',  swaps:docs })
+            }       
+        })
+    });
+
+    // get misc
+    router.get('/misc', (req, res) => {
+        const misc = Swaps.find({catagory: "Misc"});
+    
+        Swaps.find(misc).exec((err, docs) => {
+            
+            if(!err){           
+                res.render('swapShop', {layout: 'account-layout',  swaps:docs })
+            }       
+        })
+    });
+
 
 
 
