@@ -42,7 +42,7 @@ router.post('/postcodeCheck', (req, res) =>{
           
         }else{
             errors.push({ msg: 'Postcode Not Found' })
-            res.render('nogo', {
+            res.render('postCodeCheck', {
                 errors,
                 postcode
             })
