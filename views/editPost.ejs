@@ -1,0 +1,29 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1>Edit Post</h1>
+<h2><%= list.postId %></h2>
+<h2 name="title"><%= list.title %></h2>
+<h2><%= list.content %></h2>
+<h2><%= list.id %></h2>
+
+
+
+<a href="/editpost/<%= list._id %>">Update</a>
+<div>
+    <label for="content">Content</label>
+    <textarea class="form-control" rows="3" cols="54" placeholder="Add a new reply..." name="content"><%= list.content %></textarea>
+</div>
+
+<div class="form-group">
+    <button type="submit" class="btn btn-success">
+        <i class="fa fa-database"></i>
+       Create
+    </button>

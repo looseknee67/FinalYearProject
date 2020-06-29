@@ -65,30 +65,5 @@ router.get('/posts/detail/:id',(req,res) =>{
     })
  })
 
- // edit comment
- router.get('/comment/edit/:id',(req,res) =>{
-   /*  Comments.findOneAndUpdate(req.params.id, (err, commentDetail) => {
-        if (err) {
-          console.log(err);
-        } else {
-            Comments.find({'postId':req.params.id}, (err, comments) => { */
-                res.render('editComment', { layout: 'account-layout', postId: req.params.id, user: req.user.username});/* , commentDetail: commentDetail, comments: comments, postId: req.params.id, user: req.user.username}); */
-            })
-   /*      }
-    }) 
-})   */
-
-// delete comment 
-router.get('/comment/delete/:id',(req,res) =>{
-    /*  Comments.findOneAndUpdate(req.params.id, (err, commentDetail) => {
-         if (err) {
-           console.log(err);
-         } else {
-             Comments.find({'postId':req.params.id}, (err, comments) => { */
-                 res.render('deleteComment', { layout: 'account-layout', postId: req.params.id, user: req.user.username});/* , commentDetail: commentDetail, comments: comments, postId: req.params.id, user: req.user.username}); */
-             })
-    /*      }
-     }) 
- })   */
 
 module.exports = router
