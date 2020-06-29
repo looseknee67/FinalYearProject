@@ -42,11 +42,6 @@ router.get('/localChat/endchat', (req, res) => {
     
 }) 
 
-// user account
-router.get('/account',  (req, res) => {                                        
-    res.render('account', {layout: 'account-layout', name: req.user.username, postcode: req.user.postcode})
-    
-})
 
 
 module.exports = router

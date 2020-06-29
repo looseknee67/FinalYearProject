@@ -12,6 +12,13 @@ router.get('/login', forwardAuthenticated, (req, res) => {
     res.render('login')
 })
 
+// user account
+router.get('/account',  isAdmin, (req, res) => {                                         
+})
+
+//admin page
+router.get('/adminPage',  (req, res) => {
+})
 
 
 // Handle Login
@@ -24,6 +31,20 @@ router.post('/login', forwardAuthenticated, (req, res, next)=> {
        
     })(req, res, next)
 })
+
+// check for admin
+function isAdmin(req, res){
+
+  if(req.user.role == 'admin' ){
+
+    res.render('adminPage', {layout: 'admin-layout'})
+    
+  }else{
+
+    res.render('account', {layout: 'account-layout', name: req.user.username, postcode: req.user.postcode})
+    
+  }
+}
   
   // Handle Logout
   router.get('/logout', (req, res) => {
