@@ -11,6 +11,7 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const socketio = require('socket.io')
 const auto = "Admin"
+const methodOverride = require('method-override')
 const formatMessage = require('./utils/chats')
 
 const app = express()
@@ -37,7 +38,7 @@ app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
 app.set('layout', 'layouts/layout')
 app.use(express.static(__dirname + '/public'))
-
+app.use(methodOverride('_method'))
 
 // Bodyparser
 app.use(bodyParser.urlencoded({ extended: false }))
