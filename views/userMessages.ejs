@@ -1,0 +1,43 @@
+
+
+<h1>Message List</h1>
+
+<div id="userInfo">
+   
+<table class="table table-striped">
+
+    <% 
+            
+    if (typeof list != 'undefined' && list != null && list.length > 0) {
+     
+            list.forEach( function ( data ){
+                    %>
+
+            <tr>
+                <td id="tData"><%= data.title %></td>
+                <td id="tData"><%= data.message %></td>
+                <td id="tData"><%= data.sender %></td> 
+                
+                <td id="tData">
+                    <div id ="editDelete">
+                            <a href="/contact/detail/<%=data._id %>"><i class="fa fa-pencil-square-o fa-lg" style="color:#14b7eb"
+                                data-toggle="tooltip" data-placement="bottom" title="Reply"></i></a>
+                    
+                    
+                          
+</div>
+                        </td>          
+                                        
+            </tr>  
+            
+<% });
+} else { %>
+            <tr><td colspan="3"> No Data </td></tr>
+<% } %>
+
+
+</table>
+</div>
+<div id="accBtn">
+    <a href="/account" class="btn btn-info" >Back <i class="fas fa-window-close"></i></a>
+</div>

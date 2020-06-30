@@ -81,6 +81,41 @@ router.get('/item/detail/:id',(req,res) =>{
         })
     })
  
+// contact details
+router.get('/contact/detail/:id',(req,res) =>{
+    Swaps.findById(req.params.id, (err, contact) => {
+        if (err) {
+          console.log(err);
+        } else {
+            
+                res.render('contactSeller', { layout: 'account-layout', contact: contact, itemId: req.params.id, user: req.user.username});
+            }
+        })
+    })
+// contact message
+    router.post('/newcontact', async (req, res, next) => { 
+
+        const contact = new Contact(); 
+    
+            contact.target = req.body.target, 
+            contact.title = req.body.title, 
+            contact.message = req.body.message,
+            contact.sender = req.body.sender
+      
+        await contact.save((err) => { 
+            if (!err) { 
+                Swaps.find({}, (err, swaps) => {
+                res.render('swapShop', {layout: 'account-layout',  name: req.user.username, swaps:swaps}); 
+                })
+        } else { 
+            console.log('An error occured' + err);
+                
+            } 
+         }) 
+    });        
+
+
+
     // get household
     router.get('/household', (req, res) => {
         const house = Swaps.find({catagory: "Household"});

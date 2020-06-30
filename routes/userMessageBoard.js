@@ -7,6 +7,7 @@ const router = express.Router()
 var Posts = require('../models/posts');
 var Comments = require('../models/comments');
 var Swaps = require('../models/swaps');
+var Contact = require('../models/contact');
 
 // get user posts
 router.get('/postList', (req, res) => {
@@ -38,6 +39,18 @@ router.get('/swapList', (req, res) => {
     Swaps.find(user).exec((err, docs) => {
         if(!err){
             res.render('userSwaps',{layout: 'account-layout', list: docs })
+           
+        }
+
+    })
+})
+
+// get user messages
+router.get('/messageList', (req, res) => {
+    const target = Contact.find({target: req.user.username, contactId: Contact.postId});
+    Contact.find(target).exec((err, docs) => {
+        if(!err){
+            res.render('userMessages',{layout: 'account-layout', list: docs })
            
         }
 
@@ -179,7 +192,7 @@ router.post('/editswap/:id',  async  (req, res, next) => {
     function editSwap () {
         
         return async (req, res) => {
-            console.log('hello');
+           
             let swap = req.swap
             swap.title = req.body.title
             swap.desc = req.body.desc

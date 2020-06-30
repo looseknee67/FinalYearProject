@@ -1,14 +1,31 @@
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<h1>Contact Seller</h1>
+<form class="custom-form" action="/newcontact" ?_method="PUT" method="POST">
+    <img id="photoSmall" src="data:image/<%=contact.img.contentType%>;base64, <%=contact.img.data.toString('base64')%>">
+    
+    <div>
+        <label for=target>To: </label>
+        <input type="text" readonly class="form-control" name="target" style="color: black" value= "<%= contact.user %>" ></input>
+    </div>
+
+<div>
+    <label for="title">Item Title</label>
+    <input type="text" readonly class="form-control" name="title" style="color: black" value= "<%= contact.title %>" ></input>
+</div>
+
+<div>
+    <label for="message">Message</label>
+    <textarea class="form-control" rows="3" cols="54"  name="message"></textarea>
+</div>
+
+<div>
+    <label for=sender>From: </label>
+    <input type="text" readonly class="form-control" name="sender" style="color: black" value= "<%= user %>" ></input>
+</div>
+
+
+<div class="form-group">
+    <button type="submit" class="btn btn-success">
+        <i class="fa fa-database"></i>
+       Send
+    </button>
+
+</form>
