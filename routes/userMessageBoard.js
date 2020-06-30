@@ -44,7 +44,7 @@ router.get('/swapList', (req, res) => {
     })
 })
 
-// edit user comment
+// get comment to edit
 router.get('/comment/edit/:id', (req,res) => {
     Comments.findById(req.params.id, (err, doc) => {
 
@@ -56,14 +56,35 @@ router.get('/comment/edit/:id', (req,res) => {
     })
 })
 
+// edit user comment
+router.post('/editcomment/:id', async (req, res) =>{
+
+    let comment
+    
+    try {
+        comment = await Comments.findOneAndUpdate(req.params.id)
+        comment.comment = req.body.comment,
+       
+        await comment.save();
+
+        Comments.find({}, (err, list) => {
+        res.render('userComments', { layout: 'account-layout',  name: req.user.username, postcode: req.user.postcode, list:list});
+        })
+
+    } catch {
+        if(err){
+            console.log(err)
+        }
+    }
+})           
+
 // delete user comment 
 router.get('/comment/delete/:id',(req,res) =>{
     Comments.findByIdAndRemove(req.params.id, (err) => {
          if (!err) {
            
                 res.render('account', { layout: 'account-layout',  name: req.user.username, postcode: req.user.postcode});
-                
-            
+                           
          } else {
             console.log(err);
          }
@@ -84,23 +105,42 @@ router.get('/post/edit/:id', (req,res) => {
 
 
 // edit user post 
-router.get('/editpost/:id',(req, res) =>{
-    let post
-    Posts.findOneAndUpdate(req.params.id, 
-        
-        post.content = req.body.content,
-        post.title = req.body.title,
-        post.save())
-        
-         if (!err) {        
-           
+router.post('/editpost/:id', async (req, res, next) => {
+
+    req.post = await Posts.findById(req.params.id)
+    next()
+    
+    }, editPost())
+     
+    function editPost() {
+        return async (req, res) => {
+            let post = req.post
+            post.title = req.body.title
+            post.content = req.body.content
+    
+            try{
+                post = await post.save()
                 res.render('account', { layout: 'account-layout',  name: req.user.username, postcode: req.user.postcode});
-                         
-         } else {
-            console.log(err);
-         }
-     })
+    
+            } catch(e) {
+    
+            res.render('userPosts', { layout: 'account-layout',  name: req.user.username, postcode: req.user.postcode});
+        }
+    }
+    }
    
+// delete user post
+router.get('/post/delete/:id',(req, res) =>{
+    Posts.findByIdAndRemove(req.params.id, (err) => {
+          if (!err) {
+              
+                 res.render('account', { layout: 'account-layout',  name: req.user.username, postcode: req.user.postcode});
+                           
+          } else {
+             console.log(err);
+          }
+      }) 
+ })
 
 // delete user swap
 router.get('/swaps/delete/:id',(req,res) =>{
@@ -115,6 +155,46 @@ router.get('/swaps/delete/:id',(req,res) =>{
      }) 
  })   
 
+ // get user swap to edit  
+router.get('/swaps/edit/:id', (req, res) => {
+    Swaps.findById(req.params.id, (err, doc) => {
+
+        if (err) {
+          console.log(err);
+        } else {
+              res.render('editSwap', { layout: 'account-layout', list:doc });
+        }
+    })
+})
+
+// edit user swap 
+router.post('/editswap/:id',  async  (req, res, next) => {
+
+    req.swap = await Swaps.findById(req.params.id)
+    next()
+    
+    }, editSwap())
+    
+    
+    function editSwap () {
+        
+        return async (req, res) => {
+            console.log('hello');
+            let swap = req.swap
+            swap.title = req.body.title
+            swap.desc = req.body.desc
+            /* swap.img = req.body.image *//* { 
+                data: fs.readFileSync('./uploads/' + req.file.filename), 
+                contentType: 'image/png'
+            }, */
+            swap.catagory = req.body.catagory
+            swap.price = req.body.price   
+            
+                swap = await swap.save()
+
+                res.render('account', { layout: 'account-layout',  name: req.user.username, postcode: req.user.postcode});               
+    }
+}
 
 
 module.exports = router
