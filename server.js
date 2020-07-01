@@ -65,7 +65,7 @@ io.on('connection', socket => {
   socket.on('chatMessage', msg => {
     io.emit('message', formatMessage('user', msg))
   })
-  })// //////////////////////////////////////////////////////////////////////////////////////end of socket
+  })//end of socket
 
 
 // Express session
@@ -119,8 +119,6 @@ io.on('connection',function(socket){
   });
 
 });
-
-
 
 let port = 3000;
 server.listen(process.env.PORT || port, () => {

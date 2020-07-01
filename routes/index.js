@@ -9,7 +9,6 @@ router.get('/', (req, res) => {
     res.render('index')
 })
 
-
 // chat
 router.get('/localChat', (req, res) => {
 
@@ -23,8 +22,9 @@ router.get('/localChat', (req, res) => {
         }),              
     
             res.render('localChat', {layout: 'account-layout', name: user.user, connected: connected});                                       
-}) 
-// end chat
+})
+
+// end chat ///////////////////////////////////////////////////////////////// NEEDS SORTING !!!!!!!
 router.get('/localChat/endchat', (req, res) => {
 
     user.findOne({
@@ -32,12 +32,9 @@ router.get('/localChat/endchat', (req, res) => {
       }).then(user => {
 
        if(user !== ""){
-        return connected.splice(0, connected.length);   
-        
-       }
-            
-        }),
-        
+        return connected.splice(0, connected.length);           
+       }           
+        }),       
         res.render('account', {layout: 'account-layout', name: user.user})
     
 }) 
