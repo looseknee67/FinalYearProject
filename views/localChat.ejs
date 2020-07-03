@@ -1,38 +1,38 @@
 <div class="chat-container">
-    <header class="chat-header">
+  <header class="chat-header">
+   
+    <h1>Welcome <%= name %> </h1>
+  </header>
+  <main class="chat-main">
+      <input type="hidden" name="name" id="name" value="<%= name %>">
+    <div class="chat-sidebar">
      
-      <h1>Welcome <%= name %> </h1>
-    </header>
-    <main class="chat-main">
-        <input type="hidden" name="name" value="<%= name %>">
-      <div class="chat-sidebar">
-       
-        <h3><i class="fas fa-users"></i> Connected</h3>
+      <h3><i class="fas fa-users"></i> Connected</h3>
 
-        <ul>
-          <% connected.forEach(function(user){ %>
-          <li><%- user.username %></li>
-        <%});%>
-     </ul>
-      
-    </div>
-      <div class="chat-messages">
-					
-      </div>
-    </main>
-    <div class="chat-form-container">
-      <form id="chat-form">
-        
-        <input  id="msg" type="text" placeholder="Enter Message" required autocomplete="off"/>
-
-        <button class="btn btn-success btn-md" style="margin-left:10px"> Send <i class="fas fa-paper-plane"></i></button>
-
-        <a href="account" class="btn btn-info" style="margin-left:10px"> Leave Chat <i class="fas fa-comment-slash"></i></a>
-
-      </form>
-    </div>
+   
+    
   </div>
-  <!-- this fires socket.io only when chat is entered -->
- 
-  <script src="/socket.io/socket.io.js"></script>
-<script src="js/chat.js"></script>
+    <div class="chat-messages" id="messages">
+        
+    </div>
+  </main>
+  
+  <div class="chat-form-container">
+    <form action="/" method="POST" id="chatForm">
+    <!-- <form id="chat-form"> -->
+      
+      <!-- <input  id="msg" type="text" placeholder="Enter Message" required autocomplete="off"/> -->
+      <input id="txt" autocomplete="off" autofocus="on"  placeholder="type your message here..."  style="color: black"/><!-- <button>Send</button> -->
+      <button class="btn btn-success btn-md" style="margin-left:10px"> Send <i class="fas fa-paper-plane"></i></button>
+
+      <a href="account" class="btn btn-info" style="margin-left:10px"> Leave Chat <i class="fas fa-comment-slash"></i></a>
+
+    </form>
+  </div>
+</div> 
+
+<script>
+
+</script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/chatter.js"></script>

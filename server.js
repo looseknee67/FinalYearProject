@@ -45,7 +45,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 /* app.use(bodyParser.json())  */
 
 //run web socket on client connection
-io.on('connection', socket => {
+/* io.on('connection', socket => {
 
 
   // welcome user
@@ -65,8 +65,26 @@ io.on('connection', socket => {
   socket.on('chatMessage', msg => {
     io.emit('message', formatMessage('user', msg))
   })
-  })//end of socket
+  })//end of socket */
 
+  ///////////////////////////////////////////////////////////////////////////////////////////////////chat
+io.sockets.on('connection', function(socket) {
+  socket.on('username',  function(username) {
+socket.username = username;
+       io.emit('status', '&#128994 <i>' + socket.username + ' joined the chat..</i>');
+       console.log(socket.username + " " + 'emitted');
+  });
+
+  socket.on('disconnect', function(username) {
+      io.emit('status', '&#128308 <i>' + socket.username + ' left the chat..</i>');
+  })
+
+  socket.on('chat_message', function(message) {
+      io.emit('chat_message', '<strong>' + socket.username + '</strong>: ' + message);   
+  });
+
+});
+//////////////////////////////////////////////////////////////////////////////////////////////////////chat end
 
 // Express session
 app.use(
