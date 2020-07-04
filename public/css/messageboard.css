@@ -137,4 +137,13 @@ hr {
      overflow: auto;
      
  }
- 
+
+ form.custom-form2{
+    max-width: 30rem;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    /* padding-top: 100px; */
+    margin-bottom: auto;
+}
