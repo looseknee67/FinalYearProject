@@ -72,7 +72,6 @@ io.sockets.on('connection', function(socket) {
   socket.on('username',  function(username) {
 socket.username = username;
        io.emit('status', '&#128994 <i>' + socket.username + ' joined the chat..</i>');
-       console.log(socket.username + " " + 'emitted');
   });
 
   socket.on('disconnect', function(username) {

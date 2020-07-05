@@ -124,11 +124,7 @@ footer#custom-footer {
     margin-left: auto;
     margin-right: auto;
 }
-/* @media screen and (max-width: 800) {
-    .background{
-    background-color:   #2F4054;
-    }
-} */
+
 .lead{
     width: 800px;
     margin-left: auto;

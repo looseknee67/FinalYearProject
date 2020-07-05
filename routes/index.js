@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const { ensureAuthenticated } = require('../config/auth')
 const user = require('../models/User') 
-const connected = []
+const connected = [];
 
 // homepage
 router.get('/', (req, res) => {
@@ -12,31 +12,19 @@ router.get('/', (req, res) => {
 // chat
 router.get('/localChat', (req, res) => {
 
-    user.findOne({
-        username: req.user.username
-      }).then(user => {
-
-       if(connected.indexOf(user) == -1){           
-        connected.push(user); 
-       }    
-        }),              
-    
-            res.render('localChat', {layout: 'account-layout', name: user.user, connected: connected});                                       
+    var user = req.user.username;
+    connected.push(user);
+    console.log(connected);
+    res.render('localChat', {layout: 'account-layout', name: user, connected: connected});                                       
 })
 
-// end chat ///////////////////////////////////////////////////////////////// NEEDS SORTING !!!!!!!
+// end chat 
 router.get('/localChat/endchat', (req, res) => {
 
-    user.findOne({
-        username: req.user.username
-      }).then(user => {
-
-       if(user !== ""){
-        return connected.splice(0, connected.length);           
-       }           
-        }),       
-        res.render('account', {layout: 'account-layout', name: user.user})
-    
+    var user = req.user.username;
+    connected.splice( connected.indexOf(user), 1 );
+    console.log(connected);
+    res.render('account', {layout: 'account-layout', name: user, postcode: req.user.postcode })  
 }) 
 
 

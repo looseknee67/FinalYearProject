@@ -2,7 +2,13 @@ h1{
   text-align:center; 
 } 
 
-.catagories {
+/* #category {
+  
+} */
+ #category option{
+  color: black;
+ }
+.categories {
   float:left;  
   /* background:Red;  */
   width:200px; 
@@ -27,6 +33,21 @@ h1{
 #cats a:hover {
   color:black;
 }
+
+form.custom-form3{
+  max-width: 30rem;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 50px;
+  margin-bottom: auto;
+}
+
+form.custom-form3 img{
+  margin: auto;
+}
+
 #items{ 
   float:left;  
  /*  background:Green;  */
@@ -120,7 +141,7 @@ text-align: center;
 width: 100%;
 }
 
-#catagory {
+#catgory {
 color:black;
 }
 

@@ -33,14 +33,6 @@
     font-size: large;
 }
 
-/* #coms:nth-child(odd) {
-    background: #defff7;
-     margin-left: 0px; 
-}
-#coms:nth-child(even) {
-    background: #FFF7DE;
-    margin-right: 0px;
-} */
 .newComment {
     color: black;
     width: 900px;
@@ -60,10 +52,6 @@
    margin-right: auto;
 
  }
-/* #send{
-    color: black;
-    
-} */
 
 .size {
     width: 900px;
@@ -99,9 +87,7 @@
     
   
 } 
-/* .comments > div > div:last-child {
-    scroll-snap-align: end;
-  } */
+
 hr {
     background-color: gray; height: 1px; border: 0;
 }
@@ -115,7 +101,7 @@ hr {
 
  #tData {
      color: white;
-     width:50%;
+     width:100%;
      text-align: center;
      text-decoration: none;
  }
