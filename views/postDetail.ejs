@@ -25,11 +25,13 @@
                              <%= "Posted by "  + commentData.user  + " on: " + commentData.createdAt.toDateString()%>
 
                         <div id ="editDelete">
-                            <a href="/comment/edit/<%=commentData._id %>"><i class="fa fa-pencil-square-o fa-lg" style="color:#14b7eb"
-                                data-toggle="tooltip" data-placement="bottom" title="Edit Comment"></i></a>
+                           
+                           <a href="/comment/edit/<%=commentData._id %>"><i class="fa fa-pencil-square-o fa-lg" style="color:#14b7eb"
+                                data-toggle="tooltip" data-placement="bottom" title="Edit Comment"></i></a> 
+                            
 
                             <a href="/comment/delete/<%=commentData._id %>"><i class="fa fa-trash fa-lg" style="color:#f75063"
-                                data-toggle="tooltip" data-placement="bottom" title="Delete Comment"></i></a>
+                                data-toggle="tooltip" data-placement="bottom" title="Delete Comment"></i></a> 
                         </div>
                                                  
                             </div>

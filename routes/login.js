@@ -37,7 +37,7 @@ function isAdmin(req, res){
 
   if(req.user.role == 'admin' ){
 
-    res.render('adminPage', {layout: 'admin-layout'})
+    res.render('adminPage', {layout: 'admin-layout', name: req.user.username, postcode: req.user.postcode})
     
   }else{
 

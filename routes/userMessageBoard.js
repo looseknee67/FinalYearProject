@@ -21,6 +21,18 @@ router.get('/postList', (req, res) => {
     })
 })
 
+// admin get posts list
+router.get('/adminPostList', (req, res) => {
+    Posts.find({}, (err, posts) => {
+        if (err) {
+         console.log(err);           
+        
+       } else {
+          res.render('userPosts', {layout: 'account-layout', list: posts});
+       }
+   }) 
+})
+
 // get user comments
 router.get('/commentList', (req, res) => {
     const user = Comments.find({user: req.user.username, commentId: Comments.postId});
