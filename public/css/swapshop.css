@@ -2,9 +2,6 @@ h1{
   text-align:center; 
 } 
 
-/* #category {
-  
-} */
  #category option{
   color: black;
  }
@@ -109,9 +106,12 @@ form.custom-form3 img{
   border-radius: 10px; 
 }
 #photoBig {
-  max-height: 400px;
-  max-width: 400px;
+  max-height: 300px;
+  max-width: 300px;
+  border: 1px solid;
   border-radius: 10px; 
+  padding: 10px;
+  box-shadow: 3px 26px 33px -2px rgba(51,45,51,0.77);
 }
 
 #stuff {
@@ -127,18 +127,35 @@ text-align: center;
 
 }
 
-#stuff #link {
-  background-color: aquamarine;                 
-  bottom:0;  
+#stuff h3 {                 
+margin: 10px;
+
 }
 
 .modal-title {
 text-align: center;
 width: 100%;
+ 
 }
+
 .modal-body {
 text-align: center;
 width: 100%;
+
+}
+
+.modal-footer {
+
+}
+
+#desc{
+  width:350px;
+  height:auto;
+  border-style: solid;
+  border-width: 1px;
+  border-color: grey;
+  margin: auto;
+ /*  box-shadow: 3px 26px 33px -2px rgba(51,45,51,0.77); */
 }
 
 #catgory {

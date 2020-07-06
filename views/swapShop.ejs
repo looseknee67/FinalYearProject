@@ -40,43 +40,19 @@
                 swaps.forEach( function  ( swap ){            
                     srNo = srNo + 1; %>                    
                    
-<div>
+
     <div id="stuff">
-       <h3> <%= swap.title %></h3>        
+       <h3><%= swap.title %></h3>        
        <hr> 
         <img id="photo" src="data:image/<%=swap.img.contentType%>;base64, <%=swap.img.data.toString('base64')%>"> <br><br> 
 
-<div id="link"> 
-     <a href="/item/detail/<%= swap._id %>" style="color: #15C7FF">Details</a>
-</div> 
-
-<%# Modal %>
-<div class="modal fade" id="itemModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <%# Modal content %>
-      <div class="modal-content">
-        <div class="modal-header">
-            <h4 class="modal-title" style="color:black" name="title" value="" id="header"></h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          
-        </div>
-        <div class="modal-body">
-         
-          <p style="color:black">Stuff in the middle</p>
-        </div>
-        
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div> <%# modal end %>
+    <div id="details"> 
+      <a href="/item/detail/<%= swap._id %>" style="color: #15C7FF">Details...</a>
+    </div> 
   
 </div> <%# end stuff %> 
 
-</div> 
+
       <% });      
       } else {  %>
       <div><h1> No Items Available </h1></div>
