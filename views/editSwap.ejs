@@ -1,7 +1,6 @@
-<h1>Edit Swap</h1>
+<h1>Edit Swap</h1><hr>
 
-
-<form class="custom-form3" action="/editswap/<%= list.id %>" ?_method="PUT" method="POST">
+<form class="custom-form2" action="/editswap/<%= list.id %>" ?_method="PUT" method="POST">
     <img id="photoSmall" src="data:image/<%=list.img.contentType%>;base64, <%=list.img.data.toString('base64')%>">
 
 
@@ -36,9 +35,8 @@
 </div>
 
 <div class="form-group">
-    <button type="submit" class="btn btn-success">
-        <i class="fa fa-database"></i>
-       Create
+    <button type="submit" class="btn btn-success" style="margin-right:10px">Edit <i class="fa fa-pencil-square-o fa-m"></i>
     </button>
+    <a href="/account" class="btn btn-info">Cancel <i class="fas fa-window-close"></i></a>
 
 </form>

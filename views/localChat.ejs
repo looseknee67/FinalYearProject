@@ -6,20 +6,22 @@
   </script>
 
 <div class="chat-container">
-  <header class="chat-header">
-   
-    <h1>Welcome <%= name %> </h1>
+
+  <header class="chat-header">   
+    <h1>Welcome to LocalChat <%= name %>...</h1>
   </header>
+ 
   <main class="chat-main">
       <input type="hidden" name="name" id="name" value="<%= name %>">
-    <div class="chat-sidebar">
-     
-      <h3><i class="fas fa-users"></i> Connected</h3>
-      <ul>
+
+    <div class="chat-sidebar">     
+      
+      <h3><i class="fas fa-users"></i>Connected</h3>
+      <div>
         <% connected.forEach(function(user){ %>
-        <li><%= user %></li>
+        <div><%= user %></div>
       <%});%>
-   </ul>
+    </div>
    
     
   </div>
@@ -48,6 +50,3 @@
     $(this).height(0).height(this.scrollHeight);
 }).find( 'textarea' ).change(); */
 </script>
-
-<script src="/socket.io/socket.io.js"></script>
-<script src="js/chatter.js"></script>
