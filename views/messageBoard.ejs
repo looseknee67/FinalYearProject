@@ -1,4 +1,4 @@
-<h1><center>Messageboard</center></h1><br>
+<h1><center>Messageboard</center></h1><br><hr>
 <div class = "postDetail">           
 <table class="table table-hover"> 
  
@@ -8,9 +8,6 @@
           posts.forEach( function ( post ){
                   srNo = srNo + 1;
                   %>
-
-
-
 <tr>
 
 <td><a href="/posts/detail/<%= post._id %>" id = 'tData'><%= srNo %> </a></td>
@@ -26,6 +23,6 @@ else {  %>
 <% } %>
 </div>
 
-<a href="/createPost" class="btn btn-info">Create New Post <i class="fas fa-plus"></i></a><br><br>
+<a href="/createPost" class="btn btn-info">Create New Post <i class="fas fa-bullhorn"></i></a><br><br>
 </table>
 
