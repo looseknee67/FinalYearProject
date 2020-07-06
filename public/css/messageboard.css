@@ -101,8 +101,20 @@ hr {
 
  #tData {
      color: white;
-     width:100%;
-     text-align: center;
+     width:auto;
+     /* text-align: center; */
+     text-decoration: none;
+ }
+
+ #tData a, #del{
+    
+      text-align: center; 
+    
+ }
+ #aTData {
+     color: white;
+     width:auto;
+     /* text-align: center; */
      text-decoration: none;
  }
 
@@ -110,10 +122,11 @@ hr {
     text-decoration: none;
  }
 
- #editDelete {
-     float: right;
+  #centerData a{
+    margin-left: auto;
+    margin-right: auto;
     
- }
+ } 
 
  #userInfo {
      max-height: 600px;
@@ -122,6 +135,20 @@ hr {
      margin-right: auto;
      overflow: auto;
      
+ }
+
+ #adminInfo {
+     max-height: 600px;
+     width: 900px;
+     margin-left: auto;
+     margin-right: auto;
+     margin-top: 100px;
+     overflow: auto;   
+ }
+
+ #adminInfo a {
+    margin-left: auto;
+    margin-right: auto;
  }
 
  form.custom-form2{
