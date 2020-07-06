@@ -24,22 +24,21 @@ router.get('/postList', (req, res) => {
 // admin get posts list
 router.get('/adminPostList', (req, res) => {
     Posts.find({}, (err, posts) => {
-        if (err) {
-         console.log(err);           
-        
-       } else {
-          res.render('userPosts', {layout: 'account-layout', list: posts});
+        if (!err) {
+        res.render('adminPosts', {layout: 'admin-layout', list: posts});                 
+        } else {         
+        console.log(err); 
        }
    }) 
 })
 
-// get user comments
+// admin get user comments
 router.get('/commentList', (req, res) => {
-    const user = Comments.find({user: req.user.username, commentId: Comments.postId});
-    Comments.find(user).exec((err, docs) => {
+    Comments.find({}, (err, docs) => {
         if(!err){
-            res.render('userComments',{layout: 'account-layout', list: docs })
-           
+            res.render('adminComments',{layout: 'admin-layout', list: docs })          
+        }else{
+            console.log(err);  
         }
 
     })
@@ -55,6 +54,17 @@ router.get('/swapList', (req, res) => {
         }
 
     })
+})
+
+// admin get swaps list
+router.get('/adminSwapsList', (req, res) => {
+    Swaps.find({}, (err, posts) => {
+        if (!err) {
+        res.render('adminSwaps', {layout: 'admin-layout', list: posts});                 
+        } else {         
+        console.log(err); 
+       }
+   }) 
 })
 
 // get user messages
@@ -106,10 +116,8 @@ router.post('/editcomment/:id', async (req, res) =>{
 // delete user comment 
 router.get('/comment/delete/:id',(req,res) =>{
     Comments.findByIdAndRemove(req.params.id, (err) => {
-         if (!err) {
-           
-                res.render('account', { layout: 'account-layout',  name: req.user.username, postcode: req.user.postcode});
-                           
+         if (!err) {          
+                res.render('adminPage', { layout: 'admin-layout',  name: req.user.username, postcode: req.user.postcode});                       
          } else {
             console.log(err);
          }
@@ -123,7 +131,7 @@ router.get('/post/edit/:id', (req,res) => {
         if (err) {
           console.log(err);
         } else {
-              res.render('editPost', { layout: 'account-layout', list:doc });
+              res.render('editPosts', { layout: 'account-layout', list:doc });
         }
     })
 })
@@ -156,27 +164,25 @@ router.post('/editpost/:id', async (req, res, next) => {
    
 // delete user post
 router.get('/post/delete/:id',(req, res) =>{
-    Posts.findByIdAndRemove(req.params.id, (err) => {
-          if (!err) {
-              
-                 res.render('account', { layout: 'account-layout',  name: req.user.username, postcode: req.user.postcode});
-                           
+    user= req.user.username;
+    Posts.findByIdAndRemove(req.params.id, () => {
+          if (user != "admin") {             
+                 res.render('account', { layout: 'account-layout',  name: req.user.username, postcode: req.user.postcode});                          
           } else {
-             console.log(err);
+                res.render('adminPage', { layout: 'admin-layout',  name: req.user.username, postcode: req.user.postcode});
           }
       }) 
  })
 
 // delete user swap
 router.get('/swaps/delete/:id',(req,res) =>{
+    user= req.user.username;
     Swaps.findByIdAndRemove(req.params.id, (err) => {
-         if (!err) {
-           
-                res.render('account', { layout: 'account-layout',  name: req.user.username, postcode: req.user.postcode});
-                           
-         } else {
-            console.log(err);
-         }
+        if (user != "admin") {             
+            res.render('account', { layout: 'account-layout',  name: req.user.username, postcode: req.user.postcode});                          
+     } else {
+           res.render('adminPage', { layout: 'admin-layout',  name: req.user.username, postcode: req.user.postcode});
+     }
      }) 
  })   
 
