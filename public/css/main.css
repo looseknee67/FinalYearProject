@@ -2,6 +2,10 @@
     color: white;
 }
 
+#accMessages {
+    margin:auto;
+    width: 500px;
+}
 body {
     height: 100%;
     margin: 0;

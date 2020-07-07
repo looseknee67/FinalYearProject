@@ -5,7 +5,7 @@ const user = require('../models/User')
 const connected = [];
 
 // homepage
-router.get('/', (req, res) => {
+router.get('/', (req, res) => {    
     res.render('index')
 })
 

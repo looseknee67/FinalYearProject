@@ -20,8 +20,9 @@
                 <td id="tData"><%= postData.content %></td> 
                 <td id="tData">
                     <div>                                                                    
-                            <a href="/post/delete/<%=postData._id %>"><i class="fa fa-trash fa-lg" style="color:#f75063"
-                            data-toggle="tooltip" data-placement="bottom" title="Delete Comment"></i></a>
+                      <a data-toggle="modal" data-target="#deleteModal">
+                            <i class="fa fa-trash fa-m" id="del" style="color:#f75063"                           
+                             data-toggle="tooltip" data-placement="bottom" title="Delete Post"></i></a>
 </div>
                         </td>          
                                         
@@ -39,19 +40,13 @@
             </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Yes</button>
+        <a href="/post/delete/<%=postData._id %>" class="btn btn-outline-primary btn-sm">Delete <i class="fas fa-paper-plane" style="color: blue"></i></a>
         
       </div>
     </div>
   </div>
 </div>
 
-<script> 
-  function showDelete(){ 
-   
-    console.log("did i get here?");
-  }
-</script>
             
 <% });
 } else { %>

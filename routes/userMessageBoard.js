@@ -9,6 +9,8 @@ var Comments = require('../models/comments');
 var Swaps = require('../models/swaps');
 var Contact = require('../models/contact');
 
+
+
 // get user posts
 router.get('/postList', (req, res) => {
     const user = Posts.find({user: req.user.username});
@@ -116,13 +118,13 @@ router.post('/editcomment/:id', async (req, res) =>{
 // delete user comment 
 router.get('/comment/delete/:id',(req,res) =>{
     Comments.findByIdAndRemove(req.params.id, (err) => {
-         if (!err) {          
-                res.render('adminPage', { layout: 'admin-layout',  name: req.user.username, postcode: req.user.postcode});                       
-         } else {
-            console.log(err);
-         }
-     }) 
- }) 
+        if (!err) {          
+               res.render('adminPage', { layout: 'admin-layout',  name: req.user.username, postcode: req.user.postcode});                       
+        } else {
+           console.log(err);
+        }
+    }) 
+}) 
 
 // get user post to edit
 router.get('/post/edit/:id', (req,res) => {
@@ -165,24 +167,33 @@ router.post('/editpost/:id', async (req, res, next) => {
 // delete user post
 router.get('/post/delete/:id',(req, res) =>{
     user= req.user.username;
+    req.flash('successMsg', 'Item Deleted Successfully...');
     Posts.findByIdAndRemove(req.params.id, () => {
-          if (user != "admin") {             
-                 res.render('account', { layout: 'account-layout',  name: req.user.username, postcode: req.user.postcode});                          
+    
+        console.log(req.params.id + ' ' + 'three')
+          if (user != "admin") {            
+            res.render('account', { layout: 'account-layout',  name: req.user.username, postcode: req.user.postcode, successMsg: req.flash('successMsg') });
+                                            
           } else {
-                res.render('adminPage', { layout: 'admin-layout',  name: req.user.username, postcode: req.user.postcode});
-          }
+            res.render('adminPage', { layout: 'admin-layout',  name: req.user.username, postcode: req.user.postcode, successMsg: req.flash('successMsg')});
+          }         
       }) 
  })
 
 // delete user swap
 router.get('/swaps/delete/:id',(req,res) =>{
     user= req.user.username;
-    Swaps.findByIdAndRemove(req.params.id, (err) => {
+
+    Swaps.findByIdAndRemove(req.params.id, () => {
+
+        req.flash('successMsg', 'Item Deleted Successfully...');
+
         if (user != "admin") {             
-            res.render('account', { layout: 'account-layout',  name: req.user.username, postcode: req.user.postcode});                          
-     } else {
-           res.render('adminPage', { layout: 'admin-layout',  name: req.user.username, postcode: req.user.postcode});
-     }
+            res.render('account', { layout: 'account-layout',  name: req.user.username, postcode: req.user.postcode, successMsg: req.flash('successMsg')});
+
+        } else {
+           res.render('adminPage', { layout: 'admin-layout',  name: req.user.username, postcode: req.user.postcode, successMsg: req.flash('successMsg')});
+        }
      }) 
  })   
 

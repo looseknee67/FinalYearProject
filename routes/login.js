@@ -40,9 +40,9 @@ function isAdmin(req, res){
     res.render('adminPage', {layout: 'admin-layout', name: req.user.username, postcode: req.user.postcode})
     
   }else{
-
+   
     res.render('account', {layout: 'account-layout', name: req.user.username, postcode: req.user.postcode})
-    
+   
   }
 }
   
@@ -50,7 +50,7 @@ function isAdmin(req, res){
   router.get('/logout', (req, res) => {
     req.logout();
     req.flash('successMsg', 'You are logged out');
-  res.redirect('/login');
+    res.redirect('/login');
   
     });
   

@@ -1,7 +1,13 @@
 <div>
+   
     <h1><center>Welcome back <%=name%>...</center></h1>
-    <h2><center>to the 'Local Doings' for <%=postcode%></center></h2><hr>
-
+    <h2><center>to the 'Local Doings' for <%=postcode%></center></h2>
+    <div id = accMessages>
+        <%- include('../views/partials/successMessages.ejs') %>
+        <%- include('../views/partials/errorMessages.ejs') %>
+    </div>
+    <hr>
+   
 <div id="userPage">
     <a href="/postList" class="btn btn-success btn-md"><i class="fas fa-user"></i> Check Posts</a>
     <a href="/swapList" class="btn btn-success btn-md"><i class="fas fa-user"></i> Check Swaps</a>

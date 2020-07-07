@@ -1,6 +1,13 @@
+
+
 <div id="adminPage">
     <h1><center>Welcome back...</center></h1>
-    <h2><center>This is the 'Local Doings' Admin page for <%=postcode%></center></h2><hr>
+    <h2><center>This is the 'Local Doings' Admin page for <%=postcode%></center></h2>
+    <div id = accMessages>
+        <%- include('../views/partials/successMessages.ejs') %>
+        <%- include('../views/partials/errorMessages.ejs') %>
+    </div>
+    <hr>
 
 <div id="adminList">
     <a href="/adminPostList" class="btn btn-success btn-md">User Posts <i class="fas fa-user"></i></a>
