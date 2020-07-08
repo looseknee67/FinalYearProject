@@ -160,3 +160,23 @@ hr {
     /* padding-top: 100px; */
     margin-bottom: auto;
 }
+
+#swapTable {
+    table-layout: fixed
+}
+
+#modalInfo{
+    margin-left: 28px;
+}
+
+.modal-title {
+    color: black;
+}
+
+.modal-footer {
+    color: black;
+}
+
+.bootbox-body {
+    color: black;
+}

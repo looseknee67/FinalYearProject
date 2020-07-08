@@ -117,9 +117,10 @@ router.post('/editcomment/:id', async (req, res) =>{
 
 // delete user comment 
 router.get('/comment/delete/:id',(req,res) =>{
+    req.flash('successMsg', 'Item Deleted Successfully...');
     Comments.findByIdAndRemove(req.params.id, (err) => {
         if (!err) {          
-               res.render('adminPage', { layout: 'admin-layout',  name: req.user.username, postcode: req.user.postcode});                       
+               res.render('adminPage', { layout: 'admin-layout',  name: req.user.username, postcode: req.user.postcode, successMsg: req.flash('successMsg')});                       
         } else {
            console.log(err);
         }
