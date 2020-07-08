@@ -171,7 +171,7 @@ router.get('/post/delete/:id',(req, res) =>{
     req.flash('successMsg', 'Item Deleted Successfully...');
     Posts.findByIdAndRemove(req.params.id, () => {
     
-        console.log(req.params.id + ' ' + 'three')
+        
           if (user != "admin") {            
             res.render('account', { layout: 'account-layout',  name: req.user.username, postcode: req.user.postcode, successMsg: req.flash('successMsg') });
                                             
