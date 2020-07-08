@@ -20,6 +20,8 @@
               <img id="photoBig" src="data:image/<%=itemDetail.img.contentType%>;base64, <%=itemDetail.img.data.toString('base64')%>"> <hr>
               <label for="desc" style="color:black">Description</label>
               <div id="desc" style="color:black"><%= itemDetail.desc %></div>
+            </div>
+            <div id="modalInfo">
               <p style="color:black">Category: <%= itemDetail.catagory %></p>
               <p style="color:black">Seller: <%= itemDetail.user %></p>
               <p style="color:black">Price: £ <%= itemDetail.price %></p>

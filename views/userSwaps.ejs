@@ -2,7 +2,7 @@
 
 <div id="userInfo">
    
-<table class="table table-striped">
+<table class="table table-striped" id="swapTable">
    
     <% 
     if (typeof list != 'undefined' && list != null && list.length > 0) {
@@ -13,42 +13,21 @@
             <tr>
                 <td id="tData"><%= swapData.title %></td>
                 <td id="tData"><%= swapData.desc %></td> 
-                <td id="tData"><img id="photoSmall" src="data:image/<%=swapData.img.contentType%>;base64, <%=swapData.img.data.toString('base64')%>"></td> 
+                <td id="del"><img id="photoSmall" src="data:image/<%=swapData.img.contentType%>;base64, <%=swapData.img.data.toString('base64')%>"></td> 
                 <td id="tData">
                     <div id ="editDelete">
                             <a href="/swaps/edit/<%=swapData._id %>"><i class="fa fa-pencil-square-o fa-m" style="color:#14b7eb"
                                 data-toggle="tooltip" data-placement="bottom" title="Edit swap"></i></a>
                     
                     
-                                <a data-toggle="modal" data-target="#deleteModal">
+                                <a id="itemId" href="/swaps/delete/<%=swapData._id %>">
                             <i class="fa fa-trash fa-m" id="del" style="color:#f75063"                           
-                             data-toggle="tooltip" data-placement="bottom" title="Delete Post"></i></a>
+                             data-toggle="tooltip" data-placement="bottom" title="Delete Swap"></i></a>
 </div>
                         </td>          
                                         
             </tr>  
-            <form id="modal">
-<%# delete modal %>
-            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" style="color:black">Are you sure you want to delete?</h4>
-                     </div>
-            <div class="modal-body">
-            <p style="color:black">This cannot be undone...</p>
-            </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel </button>
-        <a href="/swaps/delete/<%=swapData._id %>" class="btn btn-outline-primary btn-sm">Delete <i class="fas fa-paper-plane" style="color: blue"></i></a>
-        
-      </div>
-    </div>
-  </div>
-</div> <%# modal end %> 
-</form> 
-
+         
 <% });
 } else { %>
             <tr><td colspan="3"> No Data </td></tr>

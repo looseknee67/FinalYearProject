@@ -20,33 +20,13 @@
                 <td id="tData"><%= postData.content %></td> 
                 <td id="tData">
                     <div>                                                                    
-                      <a data-toggle="modal" data-target="#deleteModal">
+                      <a id="itemId" href="/post/delete/<%=postData._id %>">
                             <i class="fa fa-trash fa-m" id="del" style="color:#f75063"                           
                              data-toggle="tooltip" data-placement="bottom" title="Delete Post"></i></a>
 </div>
                         </td>          
                                         
             </tr>  
-<%# delete modal %>
-            <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" style="color:black">Are you sure you want to delete?</h4>
-                     </div>
-            <div class="modal-body">
-            <p style="color:black">This cannot be undone...</p>
-            </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        <a href="/post/delete/<%=postData._id %>" class="btn btn-outline-primary btn-sm">Delete <i class="fas fa-paper-plane" style="color: blue"></i></a>
-        
-      </div>
-    </div>
-  </div>
-</div>
-
             
 <% });
 } else { %>
