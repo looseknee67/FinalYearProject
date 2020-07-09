@@ -1,6 +1,6 @@
-if (process.env.NODE_ENV !== 'production') {
+/* if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
-  }
+  } */
 
 const http = require('http')
 const express = require('express')
@@ -120,7 +120,7 @@ app.use('/', swapRouter)
 
 //Mongoose
 const mongoose = require('mongoose')
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
+mongoose.connect(DATABASE_URL="mongodb://localhost/finalyear", { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
 const db = mongoose.connection
 db.on('error', error => console.error(error))
 db.once('open', () => console.log('Connected to Database'))
