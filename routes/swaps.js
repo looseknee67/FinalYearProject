@@ -5,6 +5,7 @@ var path = require('path');
 var multer = require('multer'); 
 
 var Swaps = require('../models/swaps');
+var Contact = require('../models/contact');
 
 var storage = multer.diskStorage({ 
     destination: (req, file, cb) => { 
@@ -42,9 +43,9 @@ router.get('/swapShop', (req, res) => {
     }); 
 }); 
 
-// Uploading the image 
+// add new swap 
 router.post('/newSwap', upload.single('image'), (req, res, next) => { 
-  
+    let errors = [];
     const swap = new Swaps(); 
 
         swap.title =req.body.title, 
@@ -56,17 +57,39 @@ router.post('/newSwap', upload.single('image'), (req, res, next) => {
         swap.user =req.user.username,
         swap.catagory = req.body.catagory,
         swap.price =req.body.price
-  
+  //check input
+if (swap.title == "" ) {
+
+    errors.push({ msg: 'Title required'});
+}
+if (swap.desc == "" ){
+    errors.push({ msg: 'Description required'});
+}
+
+if (swap.img == 'undefined' || swap.img == null){
+    errors.push({ msg: 'Image required'});
+}
+
+if(errors.length > 0){
+console.log(errors);
+    res.render('createSwap', {layout: 'account-layout', errors: errors,
+    formData:{
+        title: swap.title, 
+        desc: swap.desc,
+        img: swap.img
+    }
+})
+}else{ 
      swap.save((err) => { 
         if (!err) { 
            Swaps.find({}, (err, swaps) => {
             res.render('swapShop', {layout: 'account-layout', swaps: swaps, user: req.user.username}); 
-        } )
+        })
     } else { 
-        console.log('An error occured' + err);
-            
+        console.log('An error occured' + err);           
         } 
      }) 
+    }
 }); 
 
 // modal
@@ -93,28 +116,39 @@ router.get('/contact/detail/:id',(req,res) =>{
         })
     })
 // contact message
-    router.post('/newcontact', async (req, res, next) => { 
-
-        const contact = new Contact(); 
+router.post('/newcontact',  (req, res, next) => { 
+    let errors = [];
+            const contact = new Contact(); 
+        
+                contact.target = req.body.target, 
+                contact.title = req.body.title, 
+                contact.message = req.body.message,
+                contact.sender = req.body.sender
     
-            contact.target = req.body.target, 
-            contact.title = req.body.title, 
-            contact.message = req.body.message,
-            contact.sender = req.body.sender
-      
-        await contact.save((err) => { 
-            if (!err) { 
-                Swaps.find({}, (err, swaps) => {
-                res.render('swapShop', {layout: 'account-layout',  name: req.user.username, swaps:swaps}); 
-                })
-        } else { 
-            console.log('An error occured' + err);
-                
+                if(contact.message == "" ){
+    
+                    errors.push({ msg: 'Message content required'})
+    
+                    //res.render('contactSeller', {layout: 'account-layout', errors})
+                }
+    
+                if(errors.length > 0){
+                    
+                    res.render('contactSeller', {layout: 'account-layout', errors})
+                }else{
+          
+             contact.save((err) => { 
+                if (!err) { 
+                    Swaps.find({}, (err, swaps) => {
+                    res.render('swapShop', {layout: 'account-layout',  name: req.user.username, swaps:swaps}); 
+                    })
+            } else { 
+                console.log('An error occured' + err);
+                    
+                } 
+             })
             } 
-         }) 
-    });        
-
-
+        });        
 
     // get household
     router.get('/household', (req, res) => {
@@ -163,7 +197,6 @@ router.get('/contact/detail/:id',(req,res) =>{
             }       
         })
     });
-
    
     // get pets
     router.get('/pets', (req, res) => {

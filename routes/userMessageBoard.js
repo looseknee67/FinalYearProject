@@ -9,7 +9,45 @@ var Comments = require('../models/comments');
 var Swaps = require('../models/swaps');
 var Contact = require('../models/contact');
 
+// new message
+router.get('/contactUser', (req, res) => {
+    res.render('contactUser', {layout: 'account-layout', name: req.user.username })
+    console.log(name);
+});
 
+router.post('/newMessage', (req, res, next) =>{
+    let errors = [];
+        const contact = new Contact(); 
+    
+            contact.target = req.body.target, 
+            contact.title = req.body.title, 
+            contact.message = req.body.message,
+            contact.sender = req.body.sender
+
+            if(contact.target == "" || contact.title == "" || contact.message == "" || contact.sender == "" ){
+
+                errors.push({ msg: 'All fields required'})
+
+                //res.render('contactUser', {layout: 'account-layout', errors})
+            }
+
+            if(errors.length > 0){
+                
+                res.render('contactUser', {layout: 'account-layout', errors})
+            }else{
+      
+         contact.save((err) => { 
+            if (!err) { 
+                Swaps.find({}, (err, swaps) => {
+                res.render('swapShop', {layout: 'account-layout',  name: req.user.username, swaps:swaps}); 
+                })
+        } else { 
+            console.log('An error occured' + err);
+                
+            } 
+         })
+        } 
+    });        
 
 // get user posts
 router.get('/postList', (req, res) => {

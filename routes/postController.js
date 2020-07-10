@@ -47,12 +47,24 @@ router.get('/posts/detail/:id',(req,res) =>{
 
 // save post
  router.post('/newpost', (req, res) => {
+    let errors = [];
     const post = new Posts();
 
     post.title= req.body.title,
     post.content= req.body.content,
     post.user= req.user.username 
  
+    if(post.title == "" || post.content == "" ){
+
+        errors.push({ msg: 'All fields required' }); 
+    }
+
+    if(errors.length > 0){
+
+        res.render('createPost', {layout: 'account-layout', errors })         
+                 
+        }else{
+
     post.save((err) => {
         if(!err){
             Posts.find({}, (err, posts) => {
@@ -63,6 +75,7 @@ router.get('/posts/detail/:id',(req,res) =>{
             console.log('An error occured' + err);
         }
     })
+    }   
  })
 
 
