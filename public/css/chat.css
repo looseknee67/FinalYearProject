@@ -101,6 +101,10 @@
     color: black; 
 }
 
+#txt {
+	color: black;
+	padding-left: 3px;
+}
 
 @media only screen and (max-width: 767px)  {
 	.chat-main {

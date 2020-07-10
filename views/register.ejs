@@ -2,6 +2,7 @@
   <form class="custom-form" action="/register" method="POST">
     <h1><center>Register Page</center></h1><br>
     <%- include('../views/partials/successMessages.ejs') %>
+    <%- include('../views/partials/errorMessages.ejs') %>
    
   <div class="form-group">
   <label for="username">Username</label>
@@ -52,7 +53,7 @@
   <a href="/" class="btn btn-info">Cancel <i class="fas fa-window-close"></i></a>
   </div>
   <p class="lead mt-4">Already Have An Account? <a href="/login" style="color: #15C7FF">Login</a>
-    <%- include('../views/partials/errorMessages.ejs') %>
+   
   </form>
   </div>
   

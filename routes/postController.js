@@ -45,7 +45,7 @@ router.get('/posts/detail/:id',(req,res) =>{
     }) 
 })  
 
-// save post
+// new post
  router.post('/newpost', (req, res) => {
     let errors = [];
     const post = new Posts();

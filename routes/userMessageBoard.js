@@ -10,12 +10,11 @@ var Swaps = require('../models/swaps');
 var Contact = require('../models/contact');
 
 // new message
-router.get('/contactUser', (req, res) => {
+/* router.get('/contactUser', (req, res) => {
     res.render('contactUser', {layout: 'account-layout', name: req.user.username })
-    console.log(name);
-});
+}); */
 
-router.post('/newMessage', (req, res, next) =>{
+/* router.post('/newMessage', (req, res, next) =>{
     let errors = [];
         const contact = new Contact(); 
     
@@ -33,15 +32,18 @@ router.post('/newMessage', (req, res, next) =>{
 
             if(errors.length > 0){
                 
-                res.render('contactUser', {layout: 'account-layout', errors})
+                res.render('contactUser', {layout: 'account-layout', 
+                errors,
+          
+            })
             
             }else{
       
             contact.save((err) => { 
             if (!err) { 
-                //Swaps.find({}, (err, swaps) => {
+                
                 res.render('account', {layout: 'account-layout',  name: req.user.username, postcode: req.user.postcode}); 
-                //})
+              
             } else {
 
             console.log('An error occured' + err);
@@ -49,7 +51,55 @@ router.post('/newMessage', (req, res, next) =>{
             } 
          })
         } 
-    });        
+    });     */
+    
+    //experiment
+    router.get('/contactUser', (req, res) => {
+        res.render('contactUser', {layout: 'account-layout', name: req.user.username })
+    });
+    
+    router.post('/newMessage', (req, res, next) =>{
+        const { target, title, message, sender } = req.body;
+        const errors = [];
+           
+    
+                if(!target || !title  || !message || !sender ){
+    
+                    errors.push({ msg: 'All fields required'});
+                }
+    
+                if(errors.length > 0){
+
+                    res.render('contactUser', {layout: 'account-layout', 
+                        errors,
+                        target,
+                        title,
+                        message,
+                        sender              
+                })
+                
+                }else{
+                    const contact = new Contact({
+                        target: target,
+                        title: title,
+                        message: message,
+                        sender: sender
+                    })
+                             
+                contact.save((err) => { 
+                if (!err) { 
+                    
+                    res.render('account', {layout: 'account-layout',  name: req.user.username, postcode: req.user.postcode}); 
+                  
+                } else {
+    
+                console.log('An error occured' + err);
+                    
+                } 
+             })
+            } 
+        });        
+    
 
 // get user posts
 router.get('/postList', (req, res) => {
@@ -259,7 +309,7 @@ router.post('/editswap/:id',  async  (req, res, next) => {
     next()
     
     }, editSwap())
-       
+
     function editSwap () {
         
         return async (req, res) => {
@@ -267,10 +317,6 @@ router.post('/editswap/:id',  async  (req, res, next) => {
             let swap = req.swap
             swap.title = req.body.title
             swap.desc = req.body.desc
-            /* swap.img = req.body.image *//* { 
-                data: fs.readFileSync('./uploads/' + req.file.filename), 
-                contentType: 'image/png'
-            }, */
             swap.catagory = req.body.catagory
             swap.price = req.body.price   
             
@@ -279,6 +325,5 @@ router.post('/editswap/:id',  async  (req, res, next) => {
                 res.render('account', { layout: 'account-layout',  name: req.user.username, postcode: req.user.postcode});               
     }
 }
-
 
 module.exports = router

@@ -1,29 +1,29 @@
-<h1>Contact Other User</h1><hr>
+<h1>Contact Other User</h1>
 <div id = accMessages>
     <%- include('../views/partials/successMessages.ejs') %>
     <%- include('../views/partials/errorMessages.ejs') %>
 </div>
-
+<hr>
 <form class="custom-form" action="/newMessage" ?_method="PUT" method="POST">
        
 <div>
     <label for=target>To: </label>
-    <input type="text"  class="form-control" name="target" style="color: black"  ></input>
+    <input type="text"  class="form-control" name="target" style="color: black"   value="<%= typeof target != 'undefined' ? target: '' %>"/>
 </div>
 
 <div>
     <label for="title">Item Title</label>
-    <input type="text"  class="form-control" name="title" style="color: black" value=  ></input>
+    <input type="text"  class="form-control" name="title" style="color: black" value="<%= typeof title != 'undefined' ? title: '' %>"/>
 </div>
 
 <div>
     <label for="message">Message</label>
-    <textarea class="form-control" rows="3" cols="54"  name="message"></textarea>
+    <textarea class="form-control" rows="3" cols="54"  name="message" style="color: black" value="<%= typeof message != 'undefined' ? message: '' %>"></textarea>
 </div>
 
 <div>
     <label for=sender>From: </label>
-    <input type="text" readonly class="form-control" name="sender" style="color: black" value="<%= name %>"></input>
+    <input type="text" class="form-control" name="sender" style="color: black" value="<%= typeof sender != 'undefined' ? sender: '' %>"/>
 </div><br>
 
 <div class="form-group">
