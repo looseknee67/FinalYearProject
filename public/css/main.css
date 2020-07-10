@@ -16,7 +16,6 @@ body {
 } */
 html {
     height: 100%;
-    /* overflow:auto; */
 }
 form.custom-form{
     max-width: 30rem;
@@ -34,7 +33,7 @@ form.custom-form{
 
 .background {
     background-color: #2F4054;
-    height: 100vh; /*97vh; */
+    height: 100vh; 
     width: 100vw;
     overflow: auto;
 }
@@ -48,7 +47,7 @@ form.custom-form{
     background-color: #15C7FF !important;
 }
 .custom2-bg-dark {
-    background-color: #2F4054 !important;/*  #27331D; *//* #2F4054; */
+    background-color: #2F4054 !important;
     padding: 10px 32px !important;
 }
 nav.navbar {
@@ -62,19 +61,16 @@ a.navbar-brand {
 
 li.nav-item a {
     text-transform: uppercase;
-    color: white !important;
-    
+    color: white !important;    
 }
 
 li.nav-item a:hover {
     
-    color: #2F4054 !important;
-    
+    color: #2F4054 !important;    
 }
 li.nav-item a:focus {
     
-    color: #2F4054 !important;
-    
+    color: #2F4054 !important;   
 }
 
 .logo {
@@ -101,7 +97,6 @@ footer#custom-footer {
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 @media only screen and (max-width: 767px) {
@@ -113,8 +108,7 @@ footer#custom-footer {
         padding-left: 20px;
         padding-bottom: 5px;
         background-color: #15C7FF;
-    } 
-    
+    }    
     .logo {
         width: 100%;
         height: auto;

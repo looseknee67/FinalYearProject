@@ -17,8 +17,6 @@
     margin-right: auto;
 }
 
-
-
 #coms {
     background-color: #eefaff;  
     color: black;
@@ -39,25 +37,18 @@
     margin-left: auto;
     margin-right: auto;
     padding-bottom: 40px;
-  /*  position: fixed;
-   bottom: 50px; */
-   /* text-align: center;  */
-  /*  padding-top: 20px; */
-
 }
  #comment {
     color: black;
     width: 400px;
     margin-left: auto;
    margin-right: auto;
-
  }
 
 .size {
     width: 900px;
     margin-left: auto;
-    margin-right: auto;
-    
+    margin-right: auto;   
 }
 
 #poster{
@@ -72,7 +63,6 @@
     
 }
 
-
 .comments{
     overflow-y:auto;
     overscroll-behavior-y: contain;
@@ -80,16 +70,12 @@
     max-height: 450px;
     width: 900px;
     margin-left: auto;
-   margin-right: auto;
-   
-    
-  
+   margin-right: auto;       
 } 
 
 hr {
     background-color: gray; height: 1px; border: 0;
 }
-
 
  td a { 
     display: block; 
@@ -106,8 +92,7 @@ hr {
 
  #tData a, #del{
     
-      text-align: center; 
-    
+      text-align: center;    
  }
  #aTData {
      color: white;
@@ -122,8 +107,7 @@ hr {
 
   #centerData a{
     margin-left: auto;
-    margin-right: auto;
-    
+    margin-right: auto;   
  } 
 
  #userInfo {
@@ -131,8 +115,7 @@ hr {
      width: 900px;
      margin-left: auto;
      margin-right: auto;
-     overflow: auto;
-     
+     overflow: auto;    
  }
 
  #adminInfo {

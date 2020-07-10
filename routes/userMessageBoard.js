@@ -34,14 +34,16 @@ router.post('/newMessage', (req, res, next) =>{
             if(errors.length > 0){
                 
                 res.render('contactUser', {layout: 'account-layout', errors})
+            
             }else{
       
-         contact.save((err) => { 
+            contact.save((err) => { 
             if (!err) { 
-                Swaps.find({}, (err, swaps) => {
-                res.render('swapShop', {layout: 'account-layout',  name: req.user.username, swaps:swaps}); 
-                })
-        } else { 
+                //Swaps.find({}, (err, swaps) => {
+                res.render('account', {layout: 'account-layout',  name: req.user.username, postcode: req.user.postcode}); 
+                //})
+            } else {
+
             console.log('An error occured' + err);
                 
             } 
@@ -54,10 +56,10 @@ router.get('/postList', (req, res) => {
     const user = Posts.find({user: req.user.username});
     Posts.find(user).exec((err, docs) => {
         if(!err){
-            res.render('userPosts',{layout: 'account-layout', list: docs })
-           
+            res.render('userPosts',{layout: 'account-layout', list: docs })           
+        }else{
+            console.log(err); 
         }
-
     })
 })
 
@@ -89,8 +91,9 @@ router.get('/swapList', (req, res) => {
     const user = Swaps.find({user: req.user.username, swapsId: Swaps.postId});
     Swaps.find(user).exec((err, docs) => {
         if(!err){
-            res.render('userSwaps',{layout: 'account-layout', list: docs })
-           
+            res.render('userSwaps',{layout: 'account-layout', list: docs })           
+        }else{
+            console.log(err);
         }
 
     })
@@ -112,8 +115,9 @@ router.get('/messageList', (req, res) => {
     const target = Contact.find({target: req.user.username, contactId: Contact.postId});
     Contact.find(target).exec((err, docs) => {
         if(!err){
-            res.render('userMessages',{layout: 'account-layout', list: docs })
-           
+            res.render('userMessages',{layout: 'account-layout', list: docs })          
+        }else{
+            console.log(err);
         }
 
     })
@@ -255,8 +259,7 @@ router.post('/editswap/:id',  async  (req, res, next) => {
     next()
     
     }, editSwap())
-    
-    
+       
     function editSwap () {
         
         return async (req, res) => {
