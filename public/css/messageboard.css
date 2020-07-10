@@ -77,13 +77,11 @@
     overflow-y:auto;
     overscroll-behavior-y: contain;
     scroll-snap-type: y mandatory;
-   /*  overflow: hidden; */
     max-height: 450px;
     width: 900px;
     margin-left: auto;
    margin-right: auto;
-    /* overflow-y: scroll; */
-    /* scroll-snap-align: end;*/
+   
     
   
 } 
@@ -102,8 +100,8 @@ hr {
  #tData {
      color: white;
      width:auto;
-     /* text-align: center; */
      text-decoration: none;
+     word-wrap:break-word;
  }
 
  #tData a, #del{

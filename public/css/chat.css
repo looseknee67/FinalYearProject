@@ -57,7 +57,7 @@
 	padding: 30px;
 	max-height: 500px;
 	overflow-y: scroll;
-	
+	word-wrap:break-word;
 }
 
 .chat-messages .message {
@@ -65,8 +65,7 @@
 	margin-bottom: 15px;
 	background-color: white;                                      
 	border-radius: 5px;
-	color: black;
-	
+	color: black;	
 }
 
 .chat-messages .message .meta {
