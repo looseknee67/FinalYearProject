@@ -1,3 +1,7 @@
+<div id = accMessages>
+    <%- include('../views/partials/successMessages.ejs') %>
+    <%- include('../views/partials/errorMessages.ejs') %>
+</div>
 <form class="custom-form" action="/newcontact" ?_method="PUT" method="POST">
     <img id="photoSmall" src="data:image/<%=contact.img.contentType%>;base64, <%=contact.img.data.toString('base64')%>">
     
@@ -13,7 +17,7 @@
 
 <div>
     <label for="message">Message</label>
-    <textarea class="form-control" rows="3" cols="54"  name="message"></textarea>
+    <textarea class="form-control" rows="3" cols="54"  name="message" required></textarea>
 </div>
 
 <div>
