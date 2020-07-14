@@ -8,19 +8,25 @@
 
     <% 
             
-    if (typeof list != 'undefined' && list != null && list.length > 0) {
-     
-            list.forEach( function ( data ){
+    if (typeof list != 'undefined' && list != null && list.length > 0) { %>
+<tr id="del">
+  <th>Subject</th>
+  <th>Message</th>
+  <th>From</th>
+  <th>Reply</th>
+  
+</tr>
+            <%  list.forEach( function ( data ){
                     %>
 
             <tr>
                 <td id="tData"><%= data.title %></td>
                 <td id="tData"><%= data.message %></td>
-                <td id="tData"><%= data.sender %></td> 
+                <td id="del"><%= data.sender %></td> 
                 
                 <td id="tData">
                     <div id ="editDelete">
-                            <a href="/contact/detail/<%=data._id %>"><i class="fas fa-reply" style="color:#14b7eb"
+                            <a href="contactUser"><i class="fas fa-reply" style="color:#14b7eb"
                                 data-toggle="tooltip" data-placement="bottom" title="Reply"></i></a>
                     
                     

@@ -5,14 +5,23 @@
 <table class="table table-striped" id="swapTable">
    
     <% 
-    if (typeof list != 'undefined' && list != null && list.length > 0) {
+    if (typeof list != 'undefined' && list != null && list.length > 0) { %>
+
+<tr id="del">
+  <th>Item</th>
+  <th>Info</th>
+  <th>Price</th>
+  <th>Image</th>
+  <th>Edit/Delete</th>
+</tr>
      
-            list.forEach( function ( swapData ){
+         <%   list.forEach( function ( swapData ){
                     %>
 
             <tr>
                 <td id="tData"><%= swapData.title %></td>
                 <td id="tData"><%= swapData.desc %></td> 
+                <td id="del">£ <%= swapData.price %></td>
                 <td id="del"><img id="photoSmall" src="data:image/<%=swapData.img.contentType%>;base64, <%=swapData.img.data.toString('base64')%>"></td> 
                 <td id="tData">
                     <div id ="editDelete">

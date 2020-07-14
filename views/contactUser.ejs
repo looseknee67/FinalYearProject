@@ -1,4 +1,4 @@
-<h1>Contact Other User</h1>
+<h1>Contact User</h1>
 <div id = accMessages>
     <%- include('../views/partials/successMessages.ejs') %>
     <%- include('../views/partials/errorMessages.ejs') %>
@@ -12,7 +12,7 @@
 </div>
 
 <div>
-    <label for="title">Item Title</label>
+    <label for="title">Subject</label>
     <input type="text"  class="form-control" name="title" style="color: black" value="<%= typeof title != 'undefined' ? title: '' %>"/>
 </div>
 
