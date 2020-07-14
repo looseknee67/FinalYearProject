@@ -1,4 +1,4 @@
-const chatForm = document.getElementById('chat-form')
+/* const chatForm = document.getElementById('chat-form')
 const chatMessages = document.querySelector('.chat-messages')
 
 const socket = io()
@@ -36,4 +36,4 @@ function outputMessage(message) {
     ${message.text}
     </p>`;
     document.querySelector('.chat-messages').appendChild(div);
-}
+} */

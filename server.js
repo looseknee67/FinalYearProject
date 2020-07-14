@@ -10,9 +10,8 @@ const passport = require('passport')
 const flash = require('connect-flash');
 const session = require('express-session');
 const socketio = require('socket.io')
-const auto = "Admin"
 const methodOverride = require('method-override')
-const formatMessage = require('./utils/chats')
+
 
 const app = express()
 const server = http.createServer(app) 
@@ -42,32 +41,8 @@ app.use(methodOverride('_method'))
 
 // Bodyparser
 app.use(bodyParser.urlencoded({ extended: false }))
-/* app.use(bodyParser.json())  */
 
-//run web socket on client connection
-/* io.on('connection', socket => {
-
-
-  // welcome user
-    socket.emit('message', formatMessage(auto, 'Welcome to LocalChat'));
-
-    // user disconnection
-  socket.on('disconnect', () => {
-    io.emit('message', formatMessage(auto,'A user has left'));
-    })
-  
-  // broadcast user connection
-  socket.broadcast.emit('message', formatMessage(auto, 'A user has joined'));
-  
-  
-  
-  // listen for chat message
-  socket.on('chatMessage', msg => {
-    io.emit('message', formatMessage('user', msg))
-  })
-  })//end of socket */
-
-  ///////////////////////////////////////////////////////////////////////////////////////////////////chat
+//chat
 io.sockets.on('connection', function(socket) {
   socket.on('username',  function(username) {
 socket.username = username;
@@ -83,7 +58,7 @@ socket.username = username;
   });
 
 });
-//////////////////////////////////////////////////////////////////////////////////////////////////////chat end
+//chat end
 
 // Express session
 app.use(

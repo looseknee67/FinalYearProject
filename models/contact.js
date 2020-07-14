@@ -1,5 +1,7 @@
-const mongoose = require('mongoose');
-
+var mongoose = require('mongoose');
+const { urlencoded } = require('body-parser');
+var Schema = mongoose.Schema,
+ObjectId = Schema.ObjectId;
 const contactSchema = new mongoose.Schema({
 target: {
     type :String,

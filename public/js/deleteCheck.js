@@ -4,7 +4,7 @@ $(document).on("click", "#itemId", function (e) {
  
      return bootbox.confirm({ 
  
-     title: "Sure you want to delete?",
+     title: "Are you sure you want to delete?",
      message: "This cannot be undone...",
      className: 'rubberBand animated',
      
