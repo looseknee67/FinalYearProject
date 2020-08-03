@@ -25,65 +25,140 @@ it('testing the server end point', function(done){
         done(); 
         })
         })
-
-        it('testing the posts end point', function(done){
+        it('testing the models comments end point', function(done){
 
             chai.request(server)
-            .get('/posts')
+            .get('/models/comments')
             .end(function(err,res){
             expect(200);
             done(); 
             })
-             }) 
-
-             it('testing the swaps end point', function(done){
+            })
+            it('testing the models contact end point', function(done){
 
                 chai.request(server)
-                .get('/swaps')
+                .get('/models/contact')
                 .end(function(err,res){
                 expect(200);
                 done(); 
-                 })
-                }) 
-
-                it('testing the routes end point', function(done){
+                })
+                })
+                it('testing the models postcode end point', function(done){
 
                     chai.request(server)
-                    .get('/routes')
+                    .get('/models/Postcode')
                     .end(function(err,res){
-                     expect(200);
+                    expect(200);
                     done(); 
                     })
-                    }) 
-
-                    it('testing the views end point', function(done){
+                    })
+                    it('testing the models posts end point', function(done){
 
                         chai.request(server)
-                        .get('/views')
+                        .get('/models/posts')
                         .end(function(err,res){
                         expect(200);
                         done(); 
                         })
                         })
-
-                        it('testing the public end point', function(done){
+                        it('testing the models swaps end point', function(done){
 
                             chai.request(server)
-                            .get('/public')
+                            .get('/models/swaps')
                             .end(function(err,res){
                             expect(200);
                             done(); 
                             })
-                            }) 
-
-                            it('testing the utils end point', function(done){
+                            })
+                            it('testing the models user end point', function(done){
 
                                 chai.request(server)
-                                .get('/utils')
+                                .get('/models/user')
                                 .end(function(err,res){
                                 expect(200);
                                 done(); 
                                 })
-                                }) 
+                                })
+                                it('testing the posts end point', function(done){
+
+                                    chai.request(server)
+                                    .get('/posts')
+                                    .end(function(err,res){
+                                    expect(200);
+                                    done(); 
+                                    })
+                                    }) 
+                                    it('testing the swaps end point', function(done){
+
+                                        chai.request(server)
+                                        .get('/swaps')
+                                        .end(function(err,res){
+                                        expect(200);
+                                        done(); 
+                                        })
+                                        }) 
+                                        it('testing the routes end point', function(done){
+
+                                            chai.request(server)
+                                            .get('/routes')
+                                            .end(function(err,res){
+                                            expect(200);
+                                            done(); 
+                                            })
+                                            }) 
+                                            it('testing the views end point', function(done){
+
+                                                chai.request(server)
+                                                .get('/views')
+                                                .end(function(err,res){
+                                                expect(200);
+                                                done(); 
+                                                })
+                                                })
+                                                it('testing the public end point', function(done){
+
+                                                    chai.request(server)
+                                                    .get('/public')
+                                                    .end(function(err,res){
+                                                    expect(200);
+                                                    done(); 
+                                                    })
+                                                    })                                
+                                                    it('testing the public css end point', function(done){
+
+                                                            chai.request(server)
+                                                            .get('/public/css')
+                                                            .end(function(err,res){
+                                                            expect(200);
+                                                            done(); 
+                                                            })
+                                                            })
+                                                            it('testing the public images end point', function(done){
+
+                                                                    chai.request(server)
+                                                                    .get('/public/images')
+                                                                    .end(function(err,res){
+                                                                    expect(200);
+                                                                    done(); 
+                                                                    })
+                                                                    })
+                                                                    it('testing the public js end point', function(done){
+
+                                                                            chai.request(server)
+                                                                            .get('/public/js')
+                                                                            .end(function(err,res){
+                                                                            expect(200);
+                                                                            done(); 
+                                                                            })
+                                                                            }) 
+                                                                            it('testing the utils end point', function(done){
+
+                                                                                chai.request(server)
+                                                                                .get('/utils')
+                                                                                .end(function(err,res){
+                                                                                expect(200);
+                                                                                done(); 
+                                                                                })
+                                                                                }) 
                    
     })
