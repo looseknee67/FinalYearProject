@@ -129,7 +129,6 @@ router.post('/newcontact',  (req, res, next) => {
     
                     errors.push({ msg: 'Message content required'})
     
-                    //res.render('contactSeller', {layout: 'account-layout', errors})
                 }
     
                 if(errors.length > 0){

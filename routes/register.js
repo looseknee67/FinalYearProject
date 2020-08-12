@@ -16,11 +16,6 @@ router.get('/register', forwardAuthenticated, (req, res) => {
     res.render('register')
 })
 
-// user account
-/* router.get('/account', (req, res) => {
-    res.render('account')
-}) */
-
 // Handle Register
 router.post('/register', (req, res) => {
   const { username, password, password2, postcode} = req.body;
@@ -83,7 +78,7 @@ if(errors.length > 0){
                     })
                 })               
             })
-                //.catch(err => console.log(err))
+               
             }
         })      
     }

@@ -5,7 +5,7 @@
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #415975;/* #2F4054; */
+    background-color: #415975;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 80px;
@@ -16,13 +16,13 @@
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 22px;
-    color: white;/* #818181; */
+    color: white;
     display: block;
     transition: 0.3s;
   }
   
   .sidebar a:hover {
-    color: black;/*  #f1f1f1; */
+    color: black;
   }
   
   .sidebar .closebtn {
@@ -31,13 +31,12 @@
     right: 10px;
     font-size: 36px;
     margin-left: 50px;
-   /*  color:#fd4935; */
   }
   
   .openbtn {
     font-size: 22px;
     cursor: pointer;
-    background-color:#2F4054; /*#15C7FF;*//*  #111;*/
+    background-color:#2F4054; 
     color: white;
     padding: 10px 15px;
     border: none;

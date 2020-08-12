@@ -151,14 +151,6 @@ it('testing the server end point', function(done){
                                                                             done(); 
                                                                             })
                                                                             }) 
-                                                                            it('testing the utils end point', function(done){
-
-                                                                                chai.request(server)
-                                                                                .get('/utils')
-                                                                                .end(function(err,res){
-                                                                                expect(200);
-                                                                                done(); 
-                                                                                })
-                                                                                }) 
+                                                                            
                    
     })

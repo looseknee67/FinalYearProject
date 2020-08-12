@@ -21,7 +21,4 @@ var socket = io.connect('http://localhost:3000');
             });
 
          
-           // ask username
-       /*   var username = prompt('Please tell me your name'); 
-             
-              socket.emit('username', username);  */
+           
