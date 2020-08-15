@@ -1,0 +1,19 @@
+[{
+  "_id": {
+    "$oid": "5f32915b0bdf3b3bf4274b68"
+  },
+  "target": "dave",
+  "title": "hello",
+  "message": "how are you?",
+  "sender": "pete",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f33be16fc28b03308ddb91b"
+  },
+  "target": "dave",
+  "title": "Trailer",
+  "message": "Do you still have that small trailer? I have some stuff to move on Saturday.",
+  "sender": "pete",
+  "__v": 0
+}]

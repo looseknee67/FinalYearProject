@@ -1,0 +1,29 @@
+[{
+  "_id": {
+    "$oid": "5f0d62280039e729c01c2bbb"
+  },
+  "title": "Lockdown ",
+  "content": "How is everyone dealing with lockdown. Anyone got any strategies they want to share on how they are coping.",
+  "user": "dave",
+  "createdAt": {
+    "$date": "2020-07-14T07:43:36.801Z"
+  },
+  "updatedAt": {
+    "$date": "2020-08-14T12:16:32.911Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f0d63a70039e729c01c2bbd"
+  },
+  "title": "Farmers Market",
+  "content": "Just to let everyone know, the farmers market resumes from Saturday 18th July. Usual place from 10 o'clock onwards. Please note: social distancing proceedures will be in place.",
+  "user": "pete",
+  "createdAt": {
+    "$date": "2020-07-14T07:49:59.717Z"
+  },
+  "updatedAt": {
+    "$date": "2020-07-14T07:49:59.717Z"
+  },
+  "__v": 0
+}]

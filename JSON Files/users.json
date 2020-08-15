@@ -1,0 +1,46 @@
+[{
+  "_id": {
+    "$oid": "5efa197121fa1c1dd037affa"
+  },
+  "role": "user",
+  "username": "dave",
+  "password": "$2a$10$3nCd2352gLQi5lybmiEUJ.gQfiXw8YxlAcfHkqQ1wOQmoKVBvgPLO",
+  "postcode": "PL14 3FT",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5efa199021fa1c1dd037affb"
+  },
+  "role": "admin",
+  "username": "admin",
+  "password": "$2a$10$V5l2dI/OJzWgCXHkJA0R/upvpN8qSo.hQRLQ0hnDRx18TZsUZ6U5S",
+  "postcode": "PL14 3FT",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5efa22060777441a48a13ce5"
+  },
+  "role": "user",
+  "username": "owen",
+  "password": "$2a$10$B5DGyU.6AQ9jyJsyUfnsb.naGsi5xRqf9wlXoODqpT.72Ptly6DDW",
+  "postcode": "PL14 3FT",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5efb516e70226b429c29f5e5"
+  },
+  "role": "user",
+  "username": "pete",
+  "password": "$2a$10$zX11wz.QzX7heiLbGsN6X.DWkOx.jboHjLLOcKovT5M9qBfjRTuQ2",
+  "postcode": "PL14 3FT",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "5f08667451e23c0facfdd819"
+  },
+  "role": "user",
+  "username": "mary",
+  "password": "$2a$10$yNYEJOFvIMmppIIzBgqFJu.Nq342QImbvzvmsd8YwqJk4YBC.Hqwy",
+  "postcode": "PL14 3FT",
+  "__v": 0
+}]
